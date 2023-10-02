@@ -1,10 +1,11 @@
 from abc import *
-import core.coretimeseries as timeseries
+import core.antstimeseries as timeseries
 
 
 class Painter(timeseries.TimeSeries, metaclass=ABCMeta):
     def __init__(self):
         super(Painter, self).__init__()
 
-    def powerSpectrum(self, directory):
+    @classmethod
+    def powerSpectrum(cls, directory):
         pass

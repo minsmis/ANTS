@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" remoteFilesAllowedToDisappearOnAutoupload="false">
+  <component name="PublishConfigData" autoUpload="On explicit save action" serverName="ms@175.192.241.241:7777 password" deleteMissingItems="true" createEmptyFolders="true" showExcludedInSync="true">
     <serverData>
       <paths name="ms@147.46.184.58:2233 password">
         <serverdata>
@@ -9,7 +9,14 @@
           </mappings>
         </serverdata>
       </paths>
+      <paths name="ms@175.192.241.241:7777 password">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/ms/Documents/Python/ANTS" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
     </serverData>
-    <option name="myAutoUpload" value="ALWAYS" />
+    <option name="myAutoUpload" value="ON_EXPLICIT_SAVE" />
   </component>
 </project>

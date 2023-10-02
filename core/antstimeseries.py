@@ -14,4 +14,6 @@ class TimeSeries:
         self.bandpass_samples = np.ndarray
 
         self.waves = np.ndarray
+        self.f_power = np.ndarray
+        self.t_power = np.ndarray
         self.waves_freqs = np.ndarray

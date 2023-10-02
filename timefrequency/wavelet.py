@@ -37,14 +37,4 @@ class Wavelet(timefreq.TimeFrequency):
 
         # save cwt results as numpy array
         self.waves = np.array(waves)
-        self.waves_freqs = np.array(freqs)
-
-    @classmethod
-    def toFPower(cls, waves):
-        f_power = np.mean((np.abs(waves)) ** 2, 1)
-        return f_power
-
-    @classmethod
-    def toTPower(cls, waves):
-        t_power = np.mean((np.abs(waves)) ** 2, 2)
-        return t_power
+        self.waves_freqs = np.array(freqs).reshape(-1)

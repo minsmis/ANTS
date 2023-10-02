@@ -1,5 +1,5 @@
 from abc import *
-import core.coretimeseries as timeseries
+import core.antstimeseries as timeseries
 
 
 class Extractor(timeseries.TimeSeries, metaclass=ABCMeta):
