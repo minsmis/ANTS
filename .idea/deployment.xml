@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="ms@147.46.184.58:2233 password (ants)" remoteFilesAllowedToDisappearOnAutoupload="false">
+  <component name="PublishConfigData" autoUpload="Always" remoteFilesAllowedToDisappearOnAutoupload="false">
     <serverData>
-      <paths name="ms@147.46.184.58:2233 password (ants)">
-        <serverdata>
-          <mappings>
-            <mapping deploy="/home/ms/Python/ANTS" local="$PROJECT_DIR$" />
-          </mappings>
-        </serverdata>
-      </paths>
-      <paths name="ms@147.46.184.58:2233 password (cubc)">
+      <paths name="ms@147.46.184.58:2233 password">
         <serverdata>
           <mappings>
             <mapping deploy="/home/ms/Python/LFP_CuBC" local="$PROJECT_DIR$/../LFP-CuBC" web="/" />
