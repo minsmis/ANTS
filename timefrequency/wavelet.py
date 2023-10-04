@@ -1,5 +1,6 @@
-import core.antslogger as logger
+import core.antslogger as log
 import timefrequency.__timefrequency as timefreq
+import postprocessing.power as power
 import os
 import matlab
 import matlab.engine as me
@@ -25,7 +26,7 @@ class Wavelet(timefreq.TimeFrequency):
                 # slicing and type casting to matlab double
                 cwt_samples = matlab.double(self.samples[duration_ts[0]:duration_ts[-1]].tolist())
             else:
-                logger.logger_handler.throw_error(err_code='0003', err_msg='Value Error')
+                log.logger_handler.throw_error(err_code='0003', err_msg='Value Error')
                 cwt_samples = matlab.double(self.samples.tolist())  # type casting to matlab double
         else:
             cwt_samples = matlab.double(self.samples.tolist())  # type casting to matlab double
@@ -38,3 +39,5 @@ class Wavelet(timefreq.TimeFrequency):
         # save cwt results as numpy array
         self.waves = np.array(waves)
         self.waves_freqs = np.array(freqs).reshape(-1)
+        self.f_power = power.Power.toFreqPower(waves=self.waves)
+        self.t_power = power.Power.toTimePower(waves = self.waves)

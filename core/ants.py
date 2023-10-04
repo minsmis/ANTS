@@ -3,6 +3,7 @@ import preprocessing.downsampling as downsampling
 import preprocessing.filters as filters
 import preprocessing.normalization as normalization
 import timefrequency.wavelet as wavelet
+import timefrequency.multitaper as multitaper
 import postprocessing.power as post_power
 import painter.plots as plots
 import numpy as np
@@ -10,7 +11,7 @@ import numpy as np
 
 # User interface
 class Ants(caller.CallTimeSeries, downsampling.Downsampling,
-           filters.Filters, normalization.Normalization, wavelet.Wavelet,
+           filters.Filters, normalization.Normalization, wavelet.Wavelet, multitaper.Multitaper,
            post_power.Power, plots.Plots):
 
     def __init__(self):

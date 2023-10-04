@@ -6,6 +6,5 @@ class Painter(timeseries.TimeSeries, metaclass=ABCMeta):
     def __init__(self):
         super(Painter, self).__init__()
 
-    @classmethod
-    def powerSpectrum(cls, directory):
+    def powerSpectrum(self, directory):
         pass

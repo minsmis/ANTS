@@ -6,13 +6,11 @@ class TimeFrequency(timeseries.TimeSeries, metaclass=ABCMeta):
     def __init__(self):
         super(TimeFrequency, self).__init__()
 
-    def waveletTransform(self):
+    def waveletTransform(self, **kwargs):
         pass
 
-    @classmethod
-    def toFPower(self, waves):
+    def multitapers(self, **kwargs):
         pass
 
-    @classmethod
-    def toTPower(self, waves):
+    def spectrogram(self, **kwargs):
         pass
