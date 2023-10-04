@@ -3,6 +3,7 @@ import os
 import numpy as np
 
 import core.antslogger as log
+import core.ants as ants
 import painter.__painter as painter
 import postprocessing.power as power
 import matplotlib.pyplot as plt
@@ -53,7 +54,7 @@ class Plots(painter.Painter):
         if 'yscale' in kwargs:
             y_scale_type = kwargs.get('yscale')
             if isinstance(y_scale_type, str):
-                plt.yscale(y_scale_type) # set y scale
+                plt.yscale(y_scale_type)  # set y scale
             else:
                 log.logger_handler.throw_error(err_code='0003', err_msg='Value Error')
 

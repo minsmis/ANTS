@@ -1,5 +1,6 @@
 import core.antslogger as log
 import timefrequency.__timefrequency as timefreq
+import postprocessing.power as power
 
 import scipy as sp
 import numpy as np
@@ -98,13 +99,17 @@ class Multitaper(timefreq.TimeFrequency):
         # save spectrum
         if 'pscale' in kwargs:
             power_scale = kwargs.get('pscale')
-            if isinstance(power_scale, str) and power_scale == 'log':
-                self.f_power = 10 * np.log10(np.mean(np.abs(spectrum) ** 2, 1))
+            if isinstance(power_scale, str):
+                if power_scale == 'log':
+                    self.f_power = np.log10(power.Power.toFreqPower(spectrum))
+                else:
+                    self.f_power = power.Power.toFreqPower(spectrum)
             else:
-                self.f_power = np.mean(np.abs(spectrum) ** 2, 1)
+                log.logger_handler.throw_error(err_code='0003', err_msg='Value Error')
+                self.f_power = power.Power.toFreqPower(spectrum)
         else:
-            self.f_power = np.mean(np.abs(spectrum) ** 2, 1)
+            self.f_power = power.Power.toFreqPower(spectrum)
 
         self.waves = spectrum
-        self.t_power = np.mean(np.abs(spectrum) ** 2, 0)
+        self.t_power = power.Power.toTimePower(spectrum)
         self.waves_freqs = freqs

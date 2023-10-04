@@ -20,13 +20,13 @@ class Power(postprocessing.Postprocessing):
 
     @classmethod
     def stackPower(cls, ants):
-        f_power_len = [len(Power.toFreqPower(ants[i].waves)) for i, ant in enumerate(ants)]
+        f_power_len = [len(ants[i].f_power) for i, _ in enumerate(ants)]
         max_len = max(f_power_len)
         freqs = ants[np.argmax(f_power_len)].waves_freqs
 
         # stack f_power
-        stack = np.array([Power.toFreqPower(ants[i].waves) if f_power_len[i] == max_len else
-                          np.append(Power.toFreqPower(ants[i].waves), np.repeat(np.nan, max_len - f_power_len[i]))
+        stack = np.array([ants[i].f_power if f_power_len[i] == max_len else
+                          np.append(ants[i].f_power, np.repeat(np.nan, max_len - f_power_len[i]))
                           for i, ant in enumerate(ants)])
         return dict(frequency=freqs, stack=stack)
 
