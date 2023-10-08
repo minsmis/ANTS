@@ -1,0 +1,14 @@
+2023-10-04 18:15:55,559 - matplotlib.text - WARNING - posx and posy should be finite values
+2023-10-04 18:15:55,560 - matplotlib.text - WARNING - posx and posy should be finite values
+2023-10-04 18:15:55,560 - matplotlib.text - WARNING - posx and posy should be finite values
+2023-10-04 18:15:55,561 - matplotlib.text - WARNING - posx and posy should be finite values
+2023-10-04 18:15:55,561 - matplotlib.text - WARNING - posx and posy should be finite values
+2023-10-04 18:15:55,562 - matplotlib.text - WARNING - posx and posy should be finite values
+2023-10-04 18:15:55,562 - matplotlib.text - WARNING - posx and posy should be finite values
+2023-10-04 18:15:55,563 - matplotlib.text - WARNING - posx and posy should be finite values
+2023-10-04 18:15:55,563 - matplotlib.text - WARNING - posx and posy should be finite values
+2023-10-04 18:15:55,564 - matplotlib.text - WARNING - posx and posy should be finite values
+2023-10-05 20:39:42,650 - root - ERROR - 0002 :: No Files Error
+2023-10-05 20:39:42,662 - root - ERROR - 0002 :: No Files Error
+2023-10-08 16:16:02,114 - matplotlib.font_manager - INFO - Failed to extract font properties from /usr/share/fonts/truetype/noto/NotoColorEmoji.ttf: In FT2Font: Can not load face (unknown file format; error code 0x2)
+2023-10-08 16:16:02,125 - matplotlib.font_manager - INFO - generated new fontManager

@@ -12,12 +12,6 @@ class CallTimeSeries(extractor.Extractor):
     def __init__(self):
         super(CallTimeSeries, self).__init__()
 
-    @classmethod
-    def callAllFolders(cls, parent_path):
-        sub_paths = np.array([subs[0] for subs in os.walk(parent_path)])
-        sub_paths.sort()
-        return sub_paths
-
     def callNeuralynx(self, path):
         os = platform.check_os()
 
