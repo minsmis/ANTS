@@ -41,15 +41,15 @@ class Multitaper(timefreq.TimeFrequency):
             power_scale = kwargs.get('pscale')
             if isinstance(power_scale, str):
                 if power_scale == 'log':
-                    self.f_power = np.log10(power.Power.toFreqPower(spectrum))
+                    self.f_power = np.log10(power.Power.to_freq_power(spectrum))
                 else:
-                    self.f_power = power.Power.toFreqPower(spectrum)
+                    self.f_power = power.Power.to_freq_power(spectrum)
             else:
                 log.logger_handler.throw_error(err_code='0003', err_msg='Value Error')
-                self.f_power = power.Power.toFreqPower(spectrum)
+                self.f_power = power.Power.to_freq_power(spectrum)
         else:
-            self.f_power = power.Power.toFreqPower(spectrum)
+            self.f_power = power.Power.to_freq_power(spectrum)
 
         self.waves = spectrum
-        self.t_power = power.Power.toTimePower(spectrum)
+        self.t_power = power.Power.to_time_power(spectrum)
         self.waves_freqs = freqs
