@@ -39,5 +39,5 @@ class Wavelet(timefreq.TimeFrequency):
         # save cwt results as numpy array
         self.waves = np.array(waves)
         self.waves_freqs = np.array(freqs).reshape(-1)
-        self.f_power = power.Power.toFreqPower(waves=self.waves)
-        self.t_power = power.Power.toTimePower(waves = self.waves)
+        self.f_power = power.Power.to_freq_power(waves=self.waves)
+        self.t_power = power.Power.to_time_power(waves = self.waves)
