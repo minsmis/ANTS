@@ -1,3 +1,4 @@
+import preparator.dirprep as dirprep
 import extractor.caller as caller
 import preprocessing.downsampling as downsampling
 import preprocessing.filters as filters
@@ -6,13 +7,14 @@ import timefrequency.wavelet as wavelet
 import timefrequency.multitaper as multitaper
 import postprocessing.power as post_power
 import painter.plots as plots
+import circulus.statistics as circular_stat
 import numpy as np
 
 
 # User interface
-class Ants(caller.CallTimeSeries, downsampling.Downsampling,
+class Ants(caller.CallTimeSeries, downsampling.Downsampling, dirprep.DirPrep,
            filters.Filters, normalization.Normalization, wavelet.Wavelet, multitaper.Multitaper,
-           post_power.Power, plots.Plots):
+           post_power.Power, plots.Plots, circular_stat.Statistics):
 
     def __init__(self):
         super(Ants, self).__init__()

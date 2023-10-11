@@ -1,7 +1,6 @@
 import core.ants as ants
 
-path = ['/Users/minseokkim/Documents/Python/ANTS/sample_dataset/cerebellum_wave_ctx_3_lh_fc_4hr.mat',
-        '/Users/minseokkim/Documents/Python/ANTS/sample_dataset/cerebellum_wave_fn_3_lh_fc_4hr.mat']
+path = '/home/ms/Documents/Python/ANTS/sample_dataset'
 figure_path = '/Users/minseokkim/Documents/Python/ANTS/figures'
 
 # # call neuralynx timeseries data
@@ -39,12 +38,13 @@ figure_path = '/Users/minseokkim/Documents/Python/ANTS/figures'
 
 ######
 
-
-batch_ants = ants.Ants.batch(batch_size=len(path))  # make 'ants' as worker
-[batch_ants[i].call_neuralynx(path=path[i]) for i, _ in enumerate(batch_ants)]  # import neuralynx
+path_list = ants.dirprep.DirPrep.get_data_directory(superior_path=path, expander='mat')  # get data directories
+batch_ants = ants.Ants.batch(batch_size=len(path_list))  # make 'ants' as worker
+[batch_ants[i].call_neuralynx(path=path_list[i]) for i, _ in enumerate(batch_ants)]  # import neuralynx
 [batch_ants[i].downsampling(target_fs=2000) for i, _ in enumerate(batch_ants)]  # downsampling
 [batch_ants[i].normalization(method='rms') for i, _ in enumerate(batch_ants)]  # normalization
-[batch_ants[i].wavelet(duration=[0, 10]) for i, _ in enumerate(batch_ants)]  # calc wavelet spectrogram
-# [batch_ants[i].spectrogram(sduration=[0, 10], nperseg=1000, pscale='log') for i, _ in enumerate(batch_ants)] # calc multitaper spectrogram
+# [batch_ants[i].wavelet(duration=[0, 10]) for i, _ in enumerate(batch_ants)]  # calc wavelet spectrogram
+# calc multitaper spectrogram
+[batch_ants[i].spectrogram(sduration=[0, 10], nperseg=1000, pscale='log') for i, _ in enumerate(batch_ants)]
 f, m, sem = ants.Ants.sem(batch=batch_ants)  # calculate sem
 ants.Ants().power_spectrum(freqs=f, mean=m, sem=sem, xscope=[0, 200])  # draw power spectrum with sem

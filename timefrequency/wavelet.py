@@ -1,10 +1,13 @@
-import core.antslogger as log
-import timefrequency.__timefrequency as timefreq
-import postprocessing.power as power
 import os
 import matlab
 import matlab.engine as me
 import numpy as np
+import scipy as sp
+import matplotlib.pyplot as plt
+
+import core.antslogger as log
+import timefrequency.__timefrequency as timefreq
+import postprocessing.power as power
 
 
 class Wavelet(timefreq.TimeFrequency):
