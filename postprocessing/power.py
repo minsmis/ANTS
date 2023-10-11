@@ -9,17 +9,17 @@ class Power(postprocessing.Postprocessing):
         super(Power, self).__init__()
 
     @classmethod
-    def toFreqPower(cls, waves):
+    def to_freq_power(cls, waves):
         f_power = np.mean((np.abs(waves)) ** 2, 1)
         return f_power
 
     @classmethod
-    def toTimePower(cls, waves):
+    def to_time_power(cls, waves):
         t_power = np.mean((np.abs(waves)) ** 2, 0)
         return t_power
 
     @classmethod
-    def stackPower(cls, ants):
+    def stack_power(cls, ants):
         f_power_len = [len(ants[i].f_power) for i, _ in enumerate(ants)]
         max_len = max(f_power_len)
         freqs = ants[np.argmax(f_power_len)].waves_freqs
@@ -38,7 +38,7 @@ class Power(postprocessing.Postprocessing):
         elif 'batch' in kwargs:
             batch = kwargs.get('batch')
             if isinstance(batch, np.ndarray):
-                stack_dict = Power.stackPower(ants=batch)
+                stack_dict = Power.stack_power(ants=batch)
                 freqs, stack = stack_dict['frequency'], stack_dict['stack']
             else:
                 log.logger_handler.throw_error(err_code='0003', err_msg='Value Error')

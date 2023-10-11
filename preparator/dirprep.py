@@ -2,7 +2,6 @@ import core.antslogger as log
 import preparator.__preparator as preparator
 
 import os
-import pathlib
 import numpy as np
 
 
@@ -11,14 +10,14 @@ class DirPrep(preparator.Preparator):
         super(DirPrep, self).__init__()
 
     @classmethod
-    def getSubdirectory(cls, superior_path):
-        # get paths where data is in itself
+    def get_subdirectory(cls, superior_path):
+        # get directories where data is in itself
         sub_paths = [subs for subs in os.walk(superior_path) if len(subs[1]) == 0 and len(subs[-1]) != 0]
         sub_paths.sort()
         return sub_paths
 
     @classmethod
-    def getDataDirectory(cls, superior_path, **kwargs):
+    def get_data_directory(cls, superior_path, **kwargs):
         # return variable
         return_dir = []
 
@@ -34,6 +33,7 @@ class DirPrep(preparator.Preparator):
         else:
             file_expander = ''  # all files
 
+        # get sub-directories from superior_path
         subs = DirPrep.getSubdirectory(superior_path=superior_path)
 
         for sub_i, _ in enumerate(subs):  # 1st sub-dir where data files in itself

@@ -6,10 +6,7 @@ class TimeFrequency(timeseries.TimeSeries, metaclass=ABCMeta):
     def __init__(self):
         super(TimeFrequency, self).__init__()
 
-    def waveletTransform(self, **kwargs):
-        pass
-
-    def multitapers(self, **kwargs):
+    def wavelet(self, **kwargs):
         pass
 
     def spectrogram(self, **kwargs):

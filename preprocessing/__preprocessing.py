@@ -10,5 +10,5 @@ class Preprocessing(timeseries.TimeSeries, metaclass=ABCMeta):
     def normalization(self, method):
         pass
 
-    def bandpassButter(self, target_band):
+    def bandpass_butter(self, target_band):
         pass

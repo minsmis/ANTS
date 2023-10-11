@@ -12,7 +12,7 @@ class CallTimeSeries(extractor.Extractor):
     def __init__(self):
         super(CallTimeSeries, self).__init__()
 
-    def callNeuralynx(self, path):
+    def call_nerualynx(self, path):
         os = platform.check_os()
 
         if os == 'win':  # Windows

@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="ms@175.192.241.241:7777 password" deleteMissingItems="true" createEmptyFolders="true" showExcludedInSync="true">
+  <component name="PublishConfigData" autoUpload="Always" serverName="ms@175.192.241.241:7777 password" deleteMissingItems="true" createEmptyFolders="true" confirmBeforeUploading="false" confirmBeforeDeletion="false" showExcludedInSync="true">
+    <option name="confirmBeforeDeletion" value="false" />
+    <option name="confirmBeforeUploading" value="false" />
     <serverData>
-      <paths name="ms@147.46.184.58:2233 password">
-        <serverdata>
-          <mappings>
-            <mapping deploy="/home/ms/Python/LFP_CuBC" local="$PROJECT_DIR$/../LFP-CuBC" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
       <paths name="ms@175.192.241.241:7777 password">
         <serverdata>
           <mappings>

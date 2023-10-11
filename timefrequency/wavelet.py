@@ -14,7 +14,7 @@ class Wavelet(timefreq.TimeFrequency):
         self.PATH_MATLAB_TIMEFREQUENCY = os.path.join(os.path.dirname(os.getcwd()),
                                                       'timefrequency', 'matlab_timefrequency')
 
-    def waveletTransform(self, **kwargs):
+    def wavelet(self, **kwargs):
         # Wavelet power spectrum - MATLAB
         matlab_engine = me.start_matlab()  # start matlab engine
         matlab_engine.cd(self.PATH_MATLAB_TIMEFREQUENCY)  # change directory to the custom matlab functions

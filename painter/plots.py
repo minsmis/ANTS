@@ -13,7 +13,7 @@ class Plots(painter.Painter):
     def __init__(self):
         super(Plots, self).__init__()
 
-    def powerSpectrum(self, **kwargs):
+    def power_spectrum(self, **kwargs):
         figure_path = os.path.join(os.path.dirname(os.getcwd()), 'figures')
         os.makedirs(figure_path, exist_ok=True)  # make 'figures' directory
 

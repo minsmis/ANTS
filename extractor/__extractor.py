@@ -4,5 +4,5 @@ import core.antstimeseries as timeseries
 
 class Extractor(timeseries.TimeSeries, metaclass=ABCMeta):
 
-    def callNeuralynx(self, dir_file):
+    def call_nerualynx(self, dir_file):
         pass

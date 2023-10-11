@@ -7,15 +7,15 @@ class Postprocessing(timeseries.TimeSeries, metaclass=ABCMeta):
         super(Postprocessing, self).__init__()
 
     @classmethod
-    def toFreqPower(cls, waves):
+    def to_freq_power(cls, waves):
         pass
 
     @classmethod
-    def toTimePower(cls, waves):
+    def to_time_power(cls, waves):
         pass
 
     @classmethod
-    def stackPower(cls, ants):
+    def stack_power(cls, ants):
         pass
 
     @classmethod

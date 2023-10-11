@@ -40,11 +40,11 @@ figure_path = '/home/ms/Documents/Python/ANTS/figures'
 ######
 
 
-batch_ants = ants.Ants.batch(batch_size=len(path))
-[batch_ants[i].callNeuralynx(path=path[i]) for i, _ in enumerate(batch_ants)]
-[batch_ants[i].downsampling(target_fs=2000) for i, _ in enumerate(batch_ants)]
-[batch_ants[i].normalization(method='rms') for i, _ in enumerate(batch_ants)]
-# [batch_ants[i].waveletTransform(duration=[0, 10]) for i, _ in enumerate(batch_ants)]
-[batch_ants[i].spectrogram(sduration=[0, 10], nperseg=1000, pscale='log') for i, _ in enumerate(batch_ants)]
-f, m, sem = ants.Ants.sem(batch=batch_ants)
-ants.Ants().powerSpectrum(freqs=f, mean=m, sem=sem, xscope=[0, 200])
+batch_ants = ants.Ants.batch(batch_size=len(path)) # make 'ants' as worker
+[batch_ants[i].callNeuralynx(path=path[i]) for i, _ in enumerate(batch_ants)] # import neuralynx
+[batch_ants[i].downsampling(target_fs=2000) for i, _ in enumerate(batch_ants)] # downsampling
+[batch_ants[i].normalization(method='rms') for i, _ in enumerate(batch_ants)] # normalization
+# [batch_ants[i].waveletTransform(duration=[0, 10]) for i, _ in enumerate(batch_ants)] # calc wavelet spectrogram
+[batch_ants[i].spectrogram(sduration=[0, 10], nperseg=1000, pscale='log') for i, _ in enumerate(batch_ants)] # calc multitaper spectrogram
+f, m, sem = ants.Ants.sem(batch=batch_ants) # calculate sem
+ants.Ants().powerSpectrum(freqs=f, mean=m, sem=sem, xscope=[0, 200]) # draw power spectrum with sem
