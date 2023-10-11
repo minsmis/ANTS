@@ -15,11 +15,21 @@ class Wavelet(timefreq.TimeFrequency):
                                                       'timefrequency', 'matlab_timefrequency')
 
     def wavelet(self, **kwargs):
-        # Wavelet power spectrum - MATLAB
-        matlab_engine = me.start_matlab()  # start matlab engine
-        matlab_engine.cd(self.PATH_MATLAB_TIMEFREQUENCY)  # change directory to the custom matlab functions
+        # internal functions
+        def _matlab_wavelet(cwt_samples):
+            # Wavelet power spectrum - MATLAB
+            matlab_engine = me.start_matlab()  # start matlab engine
+            matlab_engine.cd(self.PATH_MATLAB_TIMEFREQUENCY)  # change directory to the custom matlab functions
 
-        if 'duration' in kwargs:
+            cwt_sampling_frequency = matlab.double(self.sample_frequency)  # type casting to matlab double
+
+            # run cwt
+            waves, freqs = matlab_engine.pyCwt(cwt_samples, cwt_sampling_frequency, nargout=2)
+            return waves, freqs
+
+        waves, freqs = [], []  # pre-declaration
+
+        if 'duration' in kwargs:  # set sample duration
             duration_s = kwargs.get('duration')
             if isinstance(duration_s, list):
                 duration_ts = [int((dur * self.sample_frequency) - 1) if dur > 0 else 0 for dur in duration_s]
@@ -31,13 +41,22 @@ class Wavelet(timefreq.TimeFrequency):
         else:
             cwt_samples = matlab.double(self.samples.tolist())  # type casting to matlab double
 
-        cwt_sampling_frequency = matlab.double(self.sample_frequency)  # type casting to matlab double
-
-        # run cwt
-        waves, freqs = matlab_engine.pyCwt(cwt_samples, cwt_sampling_frequency, nargout=2)
+        if 'operation' in kwargs:
+            operation = kwargs.get('operation')
+            if isinstance(operation, str):
+                if operation == 'matlab':
+                    waves, freqs = _matlab_wavelet(cwt_samples=cwt_samples)  # run matlab wavelet transform
+                elif operation == 'python':
+                    pass
+                else:
+                    waves, freqs = _matlab_wavelet(cwt_samples=cwt_samples)  # run matlab wavelet transform
+            else:
+                log.logger_handler.throw_error(err_code='0003', err_msg='Value Error')
+        else:  # default wavelet
+            waves, freqs = _matlab_wavelet(cwt_samples=cwt_samples)  # run matlab wavelet transform
 
         # save cwt results as numpy array
         self.waves = np.array(waves)
         self.waves_freqs = np.array(freqs).reshape(-1)
         self.f_power = power.Power.to_freq_power(waves=self.waves)
-        self.t_power = power.Power.to_time_power(waves = self.waves)
+        self.t_power = power.Power.to_time_power(waves=self.waves)

@@ -34,7 +34,7 @@ class CallTimeSeries(extractor.Extractor):
                                                                     extraction_mode_vector)
             except:
                 log.logger_handler.throw_error(err_code='0002', err_msg='No Files Error')
-        elif os == 'mac' or os == 'linux':  # Mac
+        elif os == 'mac' or os == 'linux':  # Mac or linux
             try:
                 mat = readmat.loadmat(path)  # load mat7.3 file, extracted by 'extract_to_ants.m"
                 self.header = list(mat['header'])
