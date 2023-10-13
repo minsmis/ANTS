@@ -1,5 +1,6 @@
 import core.antslogger as log
 import preparator.__preparator as preparator
+import postprocessing.scale as scale
 
 import os
 import numpy as np
@@ -42,3 +43,10 @@ class DirPrep(preparator.Preparator):
                     return_dir.append(os.path.join(subs[sub_i][0],
                                                    subs[sub_i][-1][file_i]))  # append merged directory
         return np.array(return_dir)
+
+    @classmethod
+    def get_spikes(cls, superior_path, sample_frequency, expander='txt', **kwargs):
+        spikes_path = DirPrep.get_data_directory(superior_path=superior_path, expander=expander)  # get spike time
+        spikes = [scale.Scale.sec_to_ts_idx(time_s=np.loadtxt(spikes_path[i]), sample_frequency=sample_frequency)
+                  for i, _ in enumerate(spikes_path)]
+        return spikes

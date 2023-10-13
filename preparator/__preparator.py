@@ -13,3 +13,7 @@ class Preparator(timeseries.TimeSeries, metaclass=ABCMeta):
     @classmethod
     def get_data_directory(cls, superior_path, **kwargs):
         pass
+
+    @classmethod
+    def get_spikes(cls, superior_path, sample_frequency, expander='txt', **kwargs):
+        pass

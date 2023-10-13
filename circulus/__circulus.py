@@ -15,3 +15,7 @@ class Circulus(timeseries.TimeSeries):
 
     def get_preferred_phase(self, spike_peak_ts, **kwargs):
         pass
+
+    @classmethod
+    def preferred_phase(cls, samples, sample_frequency, spike_peak_ts, **kwargs):
+        pass

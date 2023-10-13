@@ -222,7 +222,14 @@ class Statistics(circulus.Circulus):
         return thetahat, kappa
 
     def get_preferred_phase(self, spike_peak_ts, **kwargs):
-        spike_phase = []  # pre-declaration
-
         phase_rad = Statistics.phase(self.samples, self.sample_frequency)  # predict phase
         spike_phase = [phase_rad[i] for i, _ in enumerate(spike_peak_ts)]  # get spike phase
+        (preferred_phase, kappa) = Statistics.von_mises_parameter(alpha=spike_phase)  # calculate preferred phase
+        return preferred_phase, kappa
+
+    @classmethod
+    def preferred_phase(cls, samples, sample_frequency, spike_peak_ts_idx, **kwargs):
+        phase_rad = Statistics.phase(samples, sample_frequency)  # predict phase
+        spike_phase = [phase_rad[ts_idx] for ts_idx in spike_peak_ts_idx]  # get spike phase
+        (preferred_phase, kappa) = Statistics.von_mises_parameter(alpha=spike_phase)  # calculate preferred phase
+        return preferred_phase, kappa

@@ -14,3 +14,11 @@ class Scale(postprocessing.Postprocessing):
 
         time_s = np.linspace(start=_start, stop=_duration_s, num=sample_frequency * _duration_s)
         return time_s
+
+    @classmethod
+    def sec_to_ts_idx(cls, time_s, sample_frequency):
+        # variables
+        _start = 0
+
+        timestamp_idx = [int(_start + (time_s[i] * sample_frequency)) for i, _ in enumerate(time_s)]
+        return timestamp_idx
