@@ -1,7 +1,7 @@
 import core.ants as ants
 
-path = '/home/ms/Documents/Python/ANTS/sample_dataset'
-figure_path = '/Users/minseokkim/Documents/Python/ANTS/figures'
+path = r'K:\Nlx2NRD\Spikeinterface\Data\2023-10-05_io_gfp_acute\lh\#1'
+figure_path = r'C:\Users\MinSeokKIM\Documents\Python\ANTS\figures'
 
 # # call neuralynx timeseries data
 # ant = ants.Ants()
