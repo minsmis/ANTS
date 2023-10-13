@@ -10,7 +10,7 @@ class Scale(postprocessing.Postprocessing):
     def ts_to_sec(cls, timestamps, sample_frequency):
         # variables
         _start = 0
-        _duration_s = (timestamps[-1] - timestamps[0]) / (1000000 * 60)
+        _duration_s = int((timestamps[-1] - timestamps[0]) / 1000000)
 
-        time = np.linspace(start=_start, stop=_duration_s, num=sample_frequency * _duration_s)
-        return time
+        time_s = np.linspace(start=_start, stop=_duration_s, num=sample_frequency * _duration_s)
+        return time_s

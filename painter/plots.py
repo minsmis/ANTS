@@ -6,6 +6,7 @@ import core.antslogger as log
 import core.ants as ants
 import painter.__painter as painter
 import postprocessing.power as power
+import postprocessing.scale as scale
 import matplotlib.pyplot as plt
 
 
@@ -69,3 +70,36 @@ class Plots(painter.Painter):
         else:
             fig.savefig(os.path.join(figure_path, 'power_spectrum.png'))
 
+    def plot_eeg(self, **kwargs):
+        figure_path = os.path.join(os.path.dirname(os.getcwd()), 'figures')
+        os.makedirs(figure_path, exist_ok=True)  # make 'figures' directory
+
+        fig, ax = plt.subplots()
+
+        # plot eeg
+        if 'duration' in kwargs:
+            duration = kwargs.get('duration')
+            if isinstance(duration, list) or isinstance(duration, np.ndarray):
+                self.time_s = scale.Scale.ts_to_sec(self.timestamps, self.sample_frequency)  # convert ts to second
+                _start = duration[0] * self.sample_frequency
+                _end = duration[-1] * self.sample_frequency
+                ax.plot(self.time_s[_start:_end], self.samples[_start:_end])
+            else:
+                log.logger_handler.throw_error(err_code='0003', err_msg='Value Error')
+        else:
+            self.time_s = scale.Scale.ts_to_sec(self.timestamps, self.sample_frequency)  # convert ts to second
+            _start = 0
+            _end = len(self.time_s)
+            ax.plot(self.time_s[_start:_end], self.samples[_start:_end])  # default plot
+            log.logger_handler.throw_warning(warn_code='0003', warn_msg='Value Warning: Few samples can be lost.')
+
+        # save spectrum
+        if 'directory' in kwargs:
+            directory = kwargs.get('directory')
+            if isinstance(directory, str):
+                fig.savefig(os.path.join(directory, 'eeg.png'))
+            else:
+                log.logger_handler.throw_warning(warn_code='0004', warn_msg='Default Path Selected')
+                fig.savefig(os.path.join(figure_path, 'eeg.png'))
+        else:
+            fig.savefig(os.path.join(figure_path, 'eeg.png'))

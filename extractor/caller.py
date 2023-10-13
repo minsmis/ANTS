@@ -7,7 +7,6 @@ import core.antslogger as log
 import core.antsplatform as platform
 import extractor.__extractor as extractor
 import extractor.nlx_in_matlab_win as nlxW
-import postprocessing.scale as scale
 
 
 class CallTimeSeries(extractor.Extractor):

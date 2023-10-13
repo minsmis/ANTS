@@ -10,7 +10,7 @@ class TimeSeries:
         self.sample_frequency = int
         self.samples = np.ndarray
         self.timestamps = np.ndarray
-        self.time = np.ndarray
+        self.time_s = np.ndarray
 
         self.bandpass_samples = np.ndarray
 

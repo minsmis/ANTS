@@ -45,6 +45,8 @@ batch_ants = ants.Ants.batch(batch_size=len(path_list))  # make 'ants' as worker
 [batch_ants[i].normalization(method='rms') for i, _ in enumerate(batch_ants)]  # normalization
 # [batch_ants[i].wavelet(duration=[0, 10]) for i, _ in enumerate(batch_ants)]  # calc wavelet spectrogram
 # calc multitaper spectrogram
-[batch_ants[i].spectrogram(sduration=[0, 10], nperseg=1000, pscale='log') for i, _ in enumerate(batch_ants)]
+[batch_ants[i].spectrogram(duration=[0, 10], nperseg=1000, pscale='log') for i, _ in enumerate(batch_ants)]
 f, m, sem = ants.Ants.sem(batch=batch_ants)  # calculate sem
 ants.Ants().power_spectrum(freqs=f, mean=m, sem=sem, xscope=[0, 200])  # draw power spectrum with sem
+
+batch_ants[0].plot_eeg(duration=[0, 1])
