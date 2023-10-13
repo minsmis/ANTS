@@ -6,6 +6,7 @@ import preprocessing.normalization as normalization
 import timefrequency.wavelet as wavelet
 import timefrequency.multitaper as multitaper
 import postprocessing.power as post_power
+import postprocessing.scale as scale
 import painter.plots as plots
 import circulus.statistics as circular_stat
 import numpy as np
@@ -14,7 +15,7 @@ import numpy as np
 # User interface
 class Ants(caller.CallTimeSeries, downsampling.Downsampling, dirprep.DirPrep,
            filters.Filters, normalization.Normalization, wavelet.Wavelet, multitaper.Multitaper,
-           post_power.Power, plots.Plots, circular_stat.Statistics):
+           post_power.Power, scale.Scale, plots.Plots, circular_stat.Statistics):
 
     def __init__(self):
         super(Ants, self).__init__()

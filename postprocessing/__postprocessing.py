@@ -21,3 +21,6 @@ class Postprocessing(timeseries.TimeSeries, metaclass=ABCMeta):
     @classmethod
     def sem(cls, stack):
         pass
+
+    def ts_to_sec(cls):
+        pass

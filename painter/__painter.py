@@ -8,3 +8,6 @@ class Painter(timeseries.TimeSeries, metaclass=ABCMeta):
 
     def power_spectrum(self, **kwargs):
         pass
+
+    def plot_eeg(self, **kwargs):
+        pass

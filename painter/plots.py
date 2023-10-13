@@ -68,3 +68,4 @@ class Plots(painter.Painter):
                 fig.savefig(os.path.join(figure_path, 'power_spectrum.png'))
         else:
             fig.savefig(os.path.join(figure_path, 'power_spectrum.png'))
+
