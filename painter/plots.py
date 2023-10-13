@@ -5,6 +5,7 @@ import numpy as np
 import core.antslogger as log
 import core.ants as ants
 import painter.__painter as painter
+import preprocessing.filters as filters
 import postprocessing.power as power
 import postprocessing.scale as scale
 import matplotlib.pyplot as plt
@@ -71,26 +72,41 @@ class Plots(painter.Painter):
             fig.savefig(os.path.join(figure_path, 'power_spectrum.png'))
 
     def plot_eeg(self, **kwargs):
+        # Variables
+        samples = np.ndarray
+        time_s = np.ndarray
+
         figure_path = os.path.join(os.path.dirname(os.getcwd()), 'figures')
         os.makedirs(figure_path, exist_ok=True)  # make 'figures' directory
 
         fig, ax = plt.subplots()
 
+        # set plot samples
+        if 'filter' in kwargs:
+            filter = kwargs.get('filter')
+            if isinstance(filter, list) or isinstance(filter, np.ndarray):
+                samples = filters.Filters.butter(samples=self.samples, sample_frequency=self.sample_frequency,
+                                                 target_band=filter)  # filtered samples
+            else:
+                log.logger_handler.throw_error(err_code='0003', err_msg='Value Error')
+        else:
+            samples = self.samples  # default samples
+
         # plot eeg
         if 'duration' in kwargs:
             duration = kwargs.get('duration')
             if isinstance(duration, list) or isinstance(duration, np.ndarray):
-                self.time_s = scale.Scale.ts_to_sec(self.timestamps, self.sample_frequency)  # convert ts to second
-                _start = duration[0] * self.sample_frequency
-                _end = duration[-1] * self.sample_frequency
-                ax.plot(self.time_s[_start:_end], self.samples[_start:_end])
+                time_s = scale.Scale.ts_to_sec(self.timestamps, self.sample_frequency)  # convert ts to second
+                _start = int(duration[0] * self.sample_frequency)
+                _end = int(duration[-1] * self.sample_frequency)
+                ax.plot(time_s[_start:_end], samples[_start:_end])
             else:
                 log.logger_handler.throw_error(err_code='0003', err_msg='Value Error')
         else:
-            self.time_s = scale.Scale.ts_to_sec(self.timestamps, self.sample_frequency)  # convert ts to second
+            time_s = scale.Scale.ts_to_sec(self.timestamps, self.sample_frequency)  # convert ts to second
             _start = 0
-            _end = len(self.time_s)
-            ax.plot(self.time_s[_start:_end], self.samples[_start:_end])  # default plot
+            _end = len(time_s)
+            ax.plot(time_s[_start:_end], samples[_start:_end])  # default plot
             log.logger_handler.throw_warning(warn_code='0003', warn_msg='Value Warning: Few samples can be lost.')
 
         # save spectrum

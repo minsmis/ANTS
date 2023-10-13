@@ -49,4 +49,4 @@ batch_ants = ants.Ants.batch(batch_size=len(path_list))  # make 'ants' as worker
 f, m, sem = ants.Ants.sem(batch=batch_ants)  # calculate sem
 ants.Ants().power_spectrum(freqs=f, mean=m, sem=sem, xscope=[0, 200])  # draw power spectrum with sem
 
-batch_ants[0].plot_eeg(duration=[0, 1])
+batch_ants[0].plot_eeg(duration=[0, 1], filter=[40, 100])

@@ -12,3 +12,7 @@ class Preprocessing(timeseries.TimeSeries, metaclass=ABCMeta):
 
     def bandpass_butter(self, target_band):
         pass
+
+    @classmethod
+    def butter(cls, samples, sample_frequency, target_band):
+        pass
