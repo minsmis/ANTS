@@ -39,7 +39,7 @@ figure_path = r'C:\Users\MinSeokKIM\Documents\Python\ANTS\figures'
 ######
 
 path_list = ants.dirprep.DirPrep.get_data_directory(superior_path=path, expander='mat')  # get data directories
-batch_ants = ants.Ants.batch(batch_size=len(path_list))  # make 'ants' as worker
+batch_ants = ants.Ants.make(batch_size=len(path_list))  # make 'ants' as worker
 [batch_ants[i].call_neuralynx(path=path_list[i]) for i, _ in enumerate(batch_ants)]  # import neuralynx
 [batch_ants[i].downsampling(target_fs=2000) for i, _ in enumerate(batch_ants)]  # downsampling
 [batch_ants[i].normalization(method='rms') for i, _ in enumerate(batch_ants)]  # normalization
