@@ -6,4 +6,5 @@ class TextClassifier(tf.keras.models.Model):
     def __init__(self):
         super(TextClassifier, self).__init__()
 
-        self.encoder = tf.keras.layers.TextVectorization(max_tokens=VOCAB_SIZE)
+        self.encoder = tf.keras.layers.TextVectorization(max_tokens=self.VOCAB_SIZE)
+
