@@ -1,12 +1,9 @@
 import os
-
 import numpy as np
 
 import core.antslogger as log
-import core.ants as ants
 import painter.__painter as painter
 import preprocessing.filters as filters
-import postprocessing.power as power
 import postprocessing.scale as scale
 import matplotlib.pyplot as plt
 
