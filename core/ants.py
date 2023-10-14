@@ -43,6 +43,7 @@ class Ants(caller.CallTimeSeries, downsampling.Downsampling, dirprep.DirPrep,
             pickle.dump(len(ants), f)
             for value in ants:
                 pickle.dump(value, f)
+        return save_path
 
     @classmethod
     def load(cls, path):
