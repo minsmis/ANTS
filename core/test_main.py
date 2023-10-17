@@ -1,6 +1,6 @@
 import core.ants as ants
 
-path = r'K:\Nlx2NRD\Spikeinterface\Data\2023-10-05_io_gfp_acute\lh'
+path = r'J:\invivorec\CheetahData\2023-10-05_io_gfp_acute\2023-10-05_io_gfp_acute\lh\#1\lfp'
 figure_path = r'C:\Users\MinSeokKIM\Documents\Python\ANTS\figures'
 
 # # call neuralynx timeseries data
@@ -48,12 +48,12 @@ batch_ants = ants.Ants.batch(batch_size=len(path_list))  # make 'ants' as worker
 # calc multitaper spectrogram
 [batch_ants[i].spectrogram(duration=[0, 10], nperseg=1000, pscale='log') for i, _ in enumerate(batch_ants)]
 f, m, sem = ants.Ants.sem(batch=batch_ants)  # calculate sem
-ants.Ants().power_spectrum(freqs=f, mean=m, sem=sem, xscope=[0, 200])  # draw power spectrum with sem
+storage = ants.Ants().power_spectrum(freqs=f, mean=m, sem=sem, xscope=[0, 200])  # draw power spectrum with sem
 batch_ants[0].plot_eeg(duration=[0, 0.5], filter=[40, 100])  # plot sample eeg
 
 # preferred phase
-_units_eeg_idx = [0, 0, 0, 1, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3]
-spikes = ants.Ants.get_spikes(superior_path=path, sample_frequency=batch_ants[0].sample_frequency)
-preferred_phase = [(ants.Ants.preferred_phase(batch_ants[eeg].bandpass_samples,
-                                              batch_ants[eeg].sample_frequency, spikes[i]))
-                   for (i, _), eeg in zip(enumerate(spikes), _units_eeg_idx)]
+# _units_eeg_idx = [0, 0, 0, 1, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3]
+# spikes = ants.Ants.get_spikes(superior_path=path, sample_frequency=batch_ants[0].sample_frequency)
+# preferred_phase = [(ants.Ants.preferred_phase(batch_ants[eeg].bandpass_samples,
+#                                               batch_ants[eeg].sample_frequency, spikes[i]))
+#                    for (i, _), eeg in zip(enumerate(spikes), _units_eeg_idx)]
