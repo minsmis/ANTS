@@ -136,7 +136,7 @@ class MainWindow(QMainWindow):
 
                 path_list = ants.dirprep.DirPrep.get_data_directory(superior_path=path,
                                                                     expander='mat')  # get data directories
-                batch_ants = ants.Ants.batch(batch_size=len(path_list))  # make 'ants' as worker
+                batch_ants = ants.Ants.make(batch_size=len(path_list))  # make 'ants' as worker
                 [batch_ants[i].call_neuralynx(path=path_list[i]) for i, _ in enumerate(batch_ants)]  # import neuralynx
 
                 self.__response(response_content=str(operation) + 'succeeded')  # report result
