@@ -1,0 +1,43 @@
+Index: core/test_main.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import core.ants as ants\r\n\r\npath = r'K:\\Nlx2NRD\\Spikeinterface\\Data\\2023-10-05_io_gfp_acute\\lh'\r\nfigure_path = r'C:\\Users\\MinSeokKIM\\Documents\\Python\\ANTS\\figures'\r\n\r\n# # call neuralynx timeseries data\r\n# ant = ants.Ants()\r\n#\r\n# # path_list = ant.callAllFolders(path)\r\n#\r\n# ant.callNeuralynx(path=path)\r\n#\r\n# print('Sample Frequency: ', ant.sample_frequency)\r\n#\r\n# #  downsample to 2000 Hz\r\n# ant.downsampling(target_fs=2000)\r\n#\r\n# print('Sample Frequency after Downsampling: ', ant.sample_frequency)\r\n#\r\n# # normalization with rms\r\n# ant.normalization(method='rms')\r\n#\r\n# # bandpassfilter\r\n# ant.bandpassButter(target_band=[4, 12])\r\n#\r\n# print('Samples: ', ant.samples)\r\n# print('Samples after applying theta bandpass filter: ', ant.bandpass_samples)\r\n#\r\n# # wavelet time frequency\r\n# # ant.waveletTransform(duration=[0, 10])\r\n# ant.spectrogram(sduration=[0, 10], nperseg=2000, pscale='log')\r\n# print('power spectrum finished')\r\n#\r\n# # draw and save the power spectrum as png\r\n# ant.powerSpectrum(xscope=[0, 200])\r\n# print('plot finished')\r\n\r\n\r\n######\r\n\r\npath_list = ants.dirprep.DirPrep.get_data_directory(superior_path=path, expander='mat')  # get data directories\r\nbatch_ants = ants.Ants.batch(batch_size=len(path_list))  # make 'ants' as worker\r\n[batch_ants[i].call_neuralynx(path=path_list[i]) for i, _ in enumerate(batch_ants)]  # import neuralynx\r\n[batch_ants[i].downsampling(target_fs=2000) for i, _ in enumerate(batch_ants)]  # downsampling\r\n[batch_ants[i].normalization(method='rms') for i, _ in enumerate(batch_ants)]  # normalization\r\n[batch_ants[i].bandpass_butter(target_band=[40, 100]) for i, _ in enumerate(batch_ants)]  # bandpass filter\r\n# [batch_ants[i].wavelet(duration=[0, 10]) for i, _ in enumerate(batch_ants)]  # calc wavelet spectrogram\r\n# calc multitaper spectrogram\r\n[batch_ants[i].spectrogram(duration=[0, 10], nperseg=1000, pscale='log') for i, _ in enumerate(batch_ants)]\r\nf, m, sem = ants.Ants.sem(batch=batch_ants)  # calculate sem\r\nants.Ants().power_spectrum(freqs=f, mean=m, sem=sem, xscope=[0, 200])  # draw power spectrum with sem\r\nbatch_ants[0].plot_eeg(duration=[0, 0.5], filter=[40, 100])  # plot sample eeg\r\n\r\n# preferred phase\r\n_units_eeg_idx = [0, 0, 0, 1, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3]\r\nspikes = ants.Ants.get_spikes(superior_path=path, sample_frequency=batch_ants[0].sample_frequency)\r\npreferred_phase = [(ants.Ants.preferred_phase(batch_ants[eeg].bandpass_samples,\r\n                                              batch_ants[eeg].sample_frequency, spikes[i]))\r\n                   for (i, _), eeg in zip(enumerate(spikes), _units_eeg_idx)]\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/core/test_main.py b/core/test_main.py
+--- a/core/test_main.py	(revision 68f5d3ef90d1201bb3399388c1c70087a1720c0d)
++++ b/core/test_main.py	(date 1697424078793)
+@@ -1,6 +1,6 @@
+ import core.ants as ants
+ 
+-path = r'K:\Nlx2NRD\Spikeinterface\Data\2023-10-05_io_gfp_acute\lh'
++path = r'J:\invivorec\CheetahData\2023-10-05_io_gfp_acute\2023-10-05_io_gfp_acute\lh'
+ figure_path = r'C:\Users\MinSeokKIM\Documents\Python\ANTS\figures'
+ 
+ # # call neuralynx timeseries data
+@@ -54,6 +54,7 @@
+ # preferred phase
+ _units_eeg_idx = [0, 0, 0, 1, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3]
+ spikes = ants.Ants.get_spikes(superior_path=path, sample_frequency=batch_ants[0].sample_frequency)
++lfp_phase = ants.Ants.phase(batch_ants[0].bandpass_samples, batch_ants[0].sample_frequency)
+ preferred_phase = [(ants.Ants.preferred_phase(batch_ants[eeg].bandpass_samples,
+                                               batch_ants[eeg].sample_frequency, spikes[i]))
+                    for (i, _), eeg in zip(enumerate(spikes), _units_eeg_idx)]
+Index: postprocessing/scale.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import numpy as np\r\nimport postprocessing.__postprocessing as postprocessing\r\n\r\n\r\nclass Scale(postprocessing.Postprocessing):\r\n    def __init__(self):\r\n        super(Scale, self).__init__()\r\n\r\n    @classmethod\r\n    def ts_to_sec(cls, timestamps, sample_frequency):\r\n        # variables\r\n        _start = 0\r\n        _duration_s = int((timestamps[-1] - timestamps[0]) / 1000000)\r\n\r\n        time_s = np.linspace(start=_start, stop=_duration_s, num=sample_frequency * _duration_s)\r\n        return time_s\r\n\r\n    @classmethod\r\n    def sec_to_ts_idx(cls, time_s, sample_frequency):\r\n        # variables\r\n        _start = 0\r\n\r\n        timestamp_idx = [int(_start + (time_s[i] * sample_frequency)) for i, _ in enumerate(time_s)]\r\n        return timestamp_idx\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/postprocessing/scale.py b/postprocessing/scale.py
+--- a/postprocessing/scale.py	(revision 68f5d3ef90d1201bb3399388c1c70087a1720c0d)
++++ b/postprocessing/scale.py	(date 1697434868417)
+@@ -20,5 +20,5 @@
+         # variables
+         _start = 0
+ 
+-        timestamp_idx = [int(_start + (time_s[i] * sample_frequency)) for i, _ in enumerate(time_s)]
++        timestamp_idx = [round(_start + (time_s[i] * sample_frequency)) for i, _ in enumerate(time_s)]
+         return timestamp_idx

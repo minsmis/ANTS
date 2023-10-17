@@ -1,0 +1,65 @@
+Index: logs/logs.log
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>2023-10-13 14:34:02,018 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.\r\n2023-10-13 14:34:02,299 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.\r\n2023-10-13 14:34:02,592 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.\r\n2023-10-13 14:37:29,843 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.\r\n2023-10-13 14:37:34,165 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.\r\n2023-10-13 14:37:38,612 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.\r\n2023-10-13 14:56:08,416 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.\r\n2023-10-13 14:56:08,701 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.\r\n2023-10-13 14:56:08,981 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.\r\n2023-10-13 15:21:58,872 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.\r\n2023-10-13 15:21:59,146 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.\r\n2023-10-13 15:21:59,477 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.\r\n2023-10-13 15:26:54,936 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.\r\n2023-10-13 15:26:55,223 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.\r\n2023-10-13 15:26:55,524 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.\r\n2023-10-13 15:26:55,869 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.\r\n2023-10-13 15:26:56,160 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.\r\n2023-10-13 15:26:56,420 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.\r\n2023-10-13 15:26:56,737 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.\r\n2023-10-13 15:26:57,029 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.\r\n2023-10-13 15:26:57,309 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.\r\n2023-10-13 15:26:57,599 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.\r\n2023-10-13 15:26:57,909 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.\r\n2023-10-13 15:26:58,196 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.\r\n2023-10-13 15:26:58,515 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.\r\n2023-10-13 15:26:58,816 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.\r\n2023-10-13 15:26:59,112 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.\r\n2023-10-13 15:35:20,168 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.\r\n2023-10-13 15:35:20,466 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.\r\n2023-10-13 15:35:20,765 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.\r\n2023-10-13 15:35:21,510 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.\r\n2023-10-13 15:36:23,239 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.\r\n2023-10-13 15:36:23,532 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.\r\n2023-10-13 15:36:23,829 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.\r\n2023-10-13 15:36:24,568 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.\r\n2023-10-13 15:36:24,735 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.\r\n2023-10-13 15:36:24,884 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.\r\n2023-10-13 15:36:25,049 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.\r\n2023-10-13 15:36:25,468 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.\r\n2023-10-13 15:36:25,733 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.\r\n2023-10-13 15:36:26,012 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.\r\n2023-10-13 15:36:26,284 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.\r\n2023-10-13 15:36:26,590 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.\r\n2023-10-13 15:36:26,899 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.\r\n2023-10-13 15:36:27,163 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.\r\n2023-10-13 15:36:27,489 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/logs/logs.log b/logs/logs.log
+--- a/logs/logs.log	(revision 68f5d3ef90d1201bb3399388c1c70087a1720c0d)
++++ b/logs/logs.log	(date 1697434929973)
+@@ -44,3 +44,18 @@
+ 2023-10-13 15:36:26,899 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.
+ 2023-10-13 15:36:27,163 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.
+ 2023-10-13 15:36:27,489 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.
++2023-10-16 14:42:05,924 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.
++2023-10-16 14:42:06,215 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.
++2023-10-16 14:42:06,506 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.
++2023-10-16 14:42:07,216 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.
++2023-10-16 14:42:07,390 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.
++2023-10-16 14:42:07,540 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.
++2023-10-16 14:42:07,714 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.
++2023-10-16 14:42:08,101 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.
++2023-10-16 14:42:08,409 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.
++2023-10-16 14:42:08,644 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.
++2023-10-16 14:42:08,909 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.
++2023-10-16 14:42:09,181 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.
++2023-10-16 14:42:09,445 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.
++2023-10-16 14:42:09,710 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.
++2023-10-16 14:42:09,973 - root - WARNING - 0003 :: Value Warning: Requirements for confidence levels not met.
+Index: pyqt6/main_ui.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pyqt6/main_ui.py b/pyqt6/main_ui.py
+new file mode 100644
+--- /dev/null	(date 1697509882510)
++++ b/pyqt6/main_ui.py	(date 1697509882510)
+@@ -0,0 +1,26 @@
++import sys
++import PySide6 as pys
++from PySide6 import QtCore, QtWidgets, QtGui
++
++
++class Main(QtWidgets.QWidget):
++    def __init__(self):
++        super().__init__()
++
++        self.text_box = QtWidgets.QLineEdit()
++
++        self.hlayout = QtWidgets.QHBoxLayout()
++        self.hlayout.addWidget(self.text_box)
++        self.setLayout(self.hlayout)
++
++        self.setWindowTitle('AnTS')
++
++
++if __name__ == '__main__':
++    app = QtWidgets.QApplication()
++
++    widget = Main()
++    widget.resize(1000, 500)
++    widget.show()
++
++    sys.exit(app.exec())
