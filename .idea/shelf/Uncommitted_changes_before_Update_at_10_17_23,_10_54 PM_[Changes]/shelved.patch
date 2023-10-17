@@ -1,0 +1,54 @@
+Index: initiator.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import os.path\nimport shutil\nfrom typing import List\n\nimport _api_app as api\nfrom fastapi import FastAPI, File, UploadFile\nfrom fastapi.responses import HTMLResponse\n\n\n@api.app.post('/load/')\nasync def load(files: UploadFile):\n    temp_dir = os.path.join(os.getcwd(), 'temp')  # path temp\n    os.makedirs(temp_dir, exist_ok=True)  # make temp directory\n\n    with open(os.path.join(temp_dir, files.filename), 'wb') as f:  # temporary save contents\n        f.write(await files.read())\n\n    loaded_data = api.ants.Ants.load(os.path.join(temp_dir, files.filename))  # load selected data\n\n    shutil.rmtree(temp_dir)  # delete directory and files\n    return {\"batch size\": len(loaded_data)}\n
+===================================================================
+diff --git a/initiator.py b/initiator.py
+--- a/initiator.py	
++++ b/initiator.py	
+@@ -1,21 +1,36 @@
+ import os.path
+ import shutil
+-from typing import List
++from typing import Union
+ 
+ import _api_app as api
++import _api_function as func
+ from fastapi import FastAPI, File, UploadFile
+-from fastapi.responses import HTMLResponse
+ 
+ 
+-@api.app.post('/load/')
+-async def load(files: UploadFile):
+-    temp_dir = os.path.join(os.getcwd(), 'temp')  # path temp
+-    os.makedirs(temp_dir, exist_ok=True)  # make temp directory
++# @api.app.post('/upload/')
++# async def upload(files: UploadFile):  # load files from user
++#     temp_dir = func.mktemp()  # make temp
++#     with open(os.path.join(temp_dir, files.filename), 'wb') as f:  # temporary save contents
++#         f.write(await files.read())
++#     loaded_data = api.ants.Ants.load(os.path.join(temp_dir, files.filename))  # load selected data
++#     func.rmtemp(temp_dir)  # delete directory and files
++#     return {"batch size": len(loaded_data)}, files
+ 
++@api.app.post('/upload/')
++async def upload(files: UploadFile):  # load files from user
++    temp_dir = func.mktemp()  # make temp
+     with open(os.path.join(temp_dir, files.filename), 'wb') as f:  # temporary save contents
+         f.write(await files.read())
+-
+     loaded_data = api.ants.Ants.load(os.path.join(temp_dir, files.filename))  # load selected data
++    func.rmtemp(temp_dir)  # delete directory and files
++    return {"batch size": len(loaded_data)}, files
++
+ 
+-    shutil.rmtree(temp_dir)  # delete directory and files
+-    return {"batch size": len(loaded_data)}
++@api.app.get('/download/')
++def download(files):  # download files from database
++    pass
++
++
++@api.app.get('/update/')
++def update(files, path: str):  # update my storage from database
++    pass
