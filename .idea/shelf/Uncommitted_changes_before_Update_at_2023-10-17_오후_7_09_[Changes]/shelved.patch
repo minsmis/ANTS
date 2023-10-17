@@ -1,0 +1,57 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"310cf585-63ee-4a5b-803b-8b7b79fc3ed6\" name=\"Changes\" comment=\"Add gui\">\r\n      <change afterPath=\"$PROJECT_DIR$/machinelearning/gpt/datasetgenerator/keyword_ds/4247762613231209572/00000000.shard/00000000.snapshot\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/web_closed/webpage/assets/iconmonstr-menu-1-240.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/web_closed/webpage/assets/iconmonstr-user-8-240.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/web_closed/webpage/assets/jquery-3.6.0.min.js\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/web_closed/webpage/core.js\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/web_closed/webpage/index.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"git-widget-placeholder\": \"main\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\"\r\n  }\r\n}]]></component>\r\n  <component name=\"TaskManager\">\r\n    <servers />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Add gui\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Add gui\" />\r\n  </component>\r\n  <component name=\"com.intellij.coverage.CoverageDataManagerImpl\">\r\n    <SUITE FILE_PATH=\"coverage/ANTS$test_main.coverage\" NAME=\"test_main Coverage Results\" MODIFIED=\"1697164615473\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"true\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$/core\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision c043dae91da65d6061337a17aa08098b44ab8710)
++++ b/.idea/workspace.xml	(date 1697537213326)
+@@ -4,15 +4,7 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="310cf585-63ee-4a5b-803b-8b7b79fc3ed6" name="Changes" comment="Add gui">
+-      <change afterPath="$PROJECT_DIR$/machinelearning/gpt/datasetgenerator/keyword_ds/4247762613231209572/00000000.shard/00000000.snapshot" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/web_closed/webpage/assets/iconmonstr-menu-1-240.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/web_closed/webpage/assets/iconmonstr-user-8-240.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/web_closed/webpage/assets/jquery-3.6.0.min.js" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/web_closed/webpage/core.js" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/web_closed/webpage/index.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-    </list>
++    <list default="true" id="310cf585-63ee-4a5b-803b-8b7b79fc3ed6" name="Changes" comment="Changed" />
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -23,16 +15,28 @@
+   </component>
+   <component name="PropertiesComponent"><![CDATA[{
+   "keyToString": {
++    "ASKED_ADD_EXTERNAL_FILES": "true",
+     "git-widget-placeholder": "main",
+     "node.js.selected.package.tslint": "(autodetect)"
+   }
+ }]]></component>
+   <component name="TaskManager">
++    <task id="LOCAL-00001" summary="Changed">
++      <option name="closed" value="true" />
++      <created>1697537182856</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1697537182856</updated>
++    </task>
++    <option name="localTasksCounter" value="2" />
+     <servers />
+   </component>
+   <component name="VcsManagerConfiguration">
++    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+     <MESSAGE value="Add gui" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Add gui" />
++    <MESSAGE value="Changed" />
++    <option name="LAST_COMMIT_MESSAGE" value="Changed" />
+   </component>
+   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+     <SUITE FILE_PATH="coverage/ANTS$test_main.coverage" NAME="test_main Coverage Results" MODIFIED="1697164615473" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/core" />
