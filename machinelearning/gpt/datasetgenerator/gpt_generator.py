@@ -4,9 +4,11 @@ import numpy as np
 import tensorflow as tf
 
 data = ['import', 'normalize', 'downsample', 'spectrum', 'plot']
-data_path = '/home/ms/Documents/Python/ANTS/machinelearning/gpt/datasetgenerator/pregenrated_synonyms/{}_synonyms.csv'
+data_path = ('/Users/minseokkim/Documents/Python/ANTS/machinelearning/gpt/'
+             'datasetgenerator/pregenrated_synonyms/{}_synonyms.csv')
 words = []
 labels = []
+SHUFFLE = 1000
 
 for label, d in enumerate(data):
     d_path = data_path.format(d)
@@ -25,4 +27,5 @@ words_tensor = tf.constant(words)
 labels_tensor = tf.constant(labels)
 
 keyword_ds = tf.data.Dataset.from_tensor_slices((words_tensor, labels_tensor))
+keyword_ds.shuffle(SHUFFLE)
 keyword_ds.save(os.path.join(os.getcwd(), 'keyword_ds'))
