@@ -37,7 +37,7 @@ class Power(postprocessing.Postprocessing):
             freqs, stack = stack_dict['frequency'], stack_dict['stack']
         elif 'batch' in kwargs:
             batch = kwargs.get('batch')
-            if isinstance(batch, np.ndarray):
+            if isinstance(batch, list) or isinstance(batch, np.ndarray):
                 stack_dict = Power.stack_power(ants=batch)
                 freqs, stack = stack_dict['frequency'], stack_dict['stack']
             else:

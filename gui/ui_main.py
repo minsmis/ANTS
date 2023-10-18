@@ -1,15 +1,19 @@
 import sys
 import time
 import PySide6 as pys
+import numpy as np
 from PySide6.QtCore import Qt, Signal
 from PySide6.QtWidgets import QScrollArea, QVBoxLayout, QWidget, QLabel, QHBoxLayout, QTextEdit, QMainWindow, \
     QApplication
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg
-from matplotlib.figure import Figure
 
 import core.ants as ants
 
-batch_ants = ants.Ants()  # global ants object
+
+class AntsBatch:
+    def __init__(self):
+        self.batch_ants = np.ndarray
+        self.storage = str
 
 
 class ChatBrowser(QScrollArea):
@@ -98,7 +102,7 @@ class Prompt(QWidget):
         return self.__textEdit
 
 
-class MainWindow(QMainWindow):
+class MainWindow(QMainWindow, AntsBatch):
     def __init__(self):
         super().__init__()
         self.__initUi()
@@ -128,7 +132,6 @@ class MainWindow(QMainWindow):
         self.__textEdit.clear()
 
     def __operation_classifier(self, input):
-        global batch_ants
 
         if input.startswith('import'):  # example: import > /home/user/.../file.mat
             try:
@@ -136,26 +139,31 @@ class MainWindow(QMainWindow):
 
                 path_list = ants.dirprep.DirPrep.get_data_directory(superior_path=path,
                                                                     expander='mat')  # get data directories
-                batch_ants = ants.Ants.make(batch_size=len(path_list))  # make 'ants' as worker
-                [batch_ants[i].call_neuralynx(path=path_list[i]) for i, _ in enumerate(batch_ants)]  # import neuralynx
+                self.batch_ants = ants.Ants.make(batch_size=len(path_list))  # make 'ants' as worker
+                [self.batch_ants[i].call_neuralynx(path=str(path_list[i])) for i, _ in
+                 enumerate(self.batch_ants)]  # import neuralynx
 
                 self.__response(response_content=str(operation) + 'succeeded')  # report result
+                self.__response(response_content=str(self.batch_ants[0].samples[0:10]))
             except:
                 self.__response(response_content='Failed: ' + input)  # report result
         elif input.startswith('downsample'):  # example: downsample > 2000
             try:
                 operation, target_fs = self.__process_query(query=input)
 
-                [batch_ants[i].downsampling(target_fs=target_fs) for i, _ in enumerate(batch_ants)]  # downsampling
+                # downsample
+                [self.batch_ants[i].downsampling(target_fs=int(target_fs)) for i, _ in enumerate(self.batch_ants)]
 
                 self.__response(response_content=str(operation) + 'succeeded')  # report result
+                self.__response(response_content=str(self.batch_ants[0].sample_frequency))
             except:
                 self.__response(response_content='Failed: ' + input)  # report result
         elif input.startswith('normalize'):  # example: normalize > rms
             try:
                 operation, method = self.__process_query(query=input)
 
-                [batch_ants[i].normalization(method=method) for i, _ in enumerate(batch_ants)]  # normalization
+                # normalization
+                [self.batch_ants[i].normalization(method=str(method)) for i, _ in enumerate(self.batch_ants)]
 
                 self.__response(response_content=str(operation) + 'succeeded')  # report result
             except:
@@ -164,8 +172,8 @@ class MainWindow(QMainWindow):
             try:
                 operation, band = self.__process_query(query=input)
 
-                [batch_ants[i].bandpass_butter(target_band=eval(band)) for i, _ in
-                 enumerate(batch_ants)]  # bandpass filter
+                # bandpass filter
+                [self.batch_ants[i].bandpass_butter(target_band=eval(band)) for i, _ in enumerate(self.batch_ants)]
 
                 self.__response(response_content=str(operation) + 'succeeded')  # report result
             except:
@@ -176,7 +184,7 @@ class MainWindow(QMainWindow):
                 sub_params = self.__process_subparam(parameter=parameters)
 
                 # calc multitaper spectrogram
-                [batch_ants[i].spectrogram(**sub_params) for i, _ in enumerate(batch_ants)]
+                [self.batch_ants[i].spectrogram(**sub_params) for i, _ in enumerate(self.batch_ants)]
 
                 self.__response(response_content=str(operation) + 'succeeded')  # report result
             except:
@@ -186,9 +194,9 @@ class MainWindow(QMainWindow):
                 operation, parameters = self.__process_query(query=input)
                 sub_params = self.__process_subparam(parameter=parameters)
 
-                # f, m, sem = ants.Ants.sem(batch=batch_ants)  # calculate sem
+                f, m, sem = ants.Ants.sem(batch=self.batch_ants)  # calculate sem
                 # draw power spectrum with sem
-                storage = ants.Ants().power_spectrum(**sub_params)
+                self.storage = ants.Ants().power_spectrum(freqs=f, mean=m, sem=sem, **sub_params)
 
                 self.__response(response_content=str('operation') + 'succeeded')  # report result
                 # self.__fig_response(figure=fig)  # report figure
@@ -196,9 +204,14 @@ class MainWindow(QMainWindow):
                 #     self.__fig_response(figure=fig)  # report figure
                 # except:
                 #     self.__response(response_content=str(operation) + ': Cannot plot figure')  # report figure error
-                self.__response(response_content=str('operation') + ': Stored in, ' + storage)  # report storage
+                # self.__response(response_content=str('operation') + ': Stored in, ' + storage)  # report storage
             except:
                 self.__response(response_content='Failed: ' + input)  # report result
+        elif input.startswith('test'):
+            operation, parameters = self.__process_query(query=input)
+            sub_params = self.__process_subparam(parameter=parameters)
+            self.__response(response_content=str(type(operation)))  # report result
+            self.__response(response_content=str(type(sub_params)))  # report result
 
     def __response(self, response_content):
         self.__browser.showText(response_content, False)
@@ -208,7 +221,7 @@ class MainWindow(QMainWindow):
 
     def __process_query(self, query):
         component = query.split('>')
-        [component[i].strip() for i, _ in enumerate(component)]  # strip all
+        component = [component[i].strip() for i, _ in enumerate(component)]  # strip all
         operation = component[0]  # operation type
         # last value must be parameter
         parameter = component[-1]
@@ -218,7 +231,7 @@ class MainWindow(QMainWindow):
         dict_sub_params = {}
 
         sub_parameters = parameter.split(';')
-        [sub_parameters[i].strip() for i, _ in enumerate(sub_parameters)]  # strip all
+        sub_parameters = [sub_parameters[i].strip() for i, _ in enumerate(sub_parameters)]  # strip all
         sub_parameters = [sub_parameters[i].split('=') for i, _ in enumerate(sub_parameters)
                           if '=' in sub_parameters[i]]  # split sub_parameter and sub_param value
         # [dict_sub_params.update({component[0].strip(): eval(component[-1])}) for component in
