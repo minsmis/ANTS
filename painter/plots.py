@@ -67,7 +67,7 @@ class Plots(painter.Painter):
                 fig.savefig(os.path.join(figure_path, 'power_spectrum.png'))
         else:
             fig.savefig(os.path.join(figure_path, 'power_spectrum.png'))
-        return os.path.join(figure_path, 'power_spectrum.png')
+        return fig, os.path.join(figure_path, 'power_spectrum.png')
 
     def plot_eeg(self, **kwargs):
         # Variables
@@ -117,4 +117,4 @@ class Plots(painter.Painter):
                 fig.savefig(os.path.join(figure_path, 'eeg.png'))
         else:
             fig.savefig(os.path.join(figure_path, 'eeg.png'))
-        return os.path.join(figure_path, 'eeg.png')
+        return fig, os.path.join(figure_path, 'eeg.png')
