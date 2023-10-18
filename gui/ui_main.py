@@ -131,11 +131,11 @@ class MainWindow(QMainWindow, AntsBatch):
         self.__operation_classifier(self.__textEdit.toPlainText())
         self.__textEdit.clear()
 
-    def __operation_classifier(self, input):
+    def __operation_classifier(self, query):
 
-        if input.startswith('import'):  # example: import > /home/user/.../file.mat
+        if query.startswith('import'):  # example: import > /home/user/.../file.mat
             try:
-                operation, path = self.__process_query(query=input)
+                operation, path = self.__process_query(query=query)
 
                 path_list = ants.dirprep.DirPrep.get_data_directory(superior_path=path,
                                                                     expander='mat')  # get data directories
@@ -146,10 +146,10 @@ class MainWindow(QMainWindow, AntsBatch):
                 self.__response(response_content=str(operation) + 'succeeded')  # report result
                 self.__response(response_content=str(self.batch_ants[0].samples[0:10]))
             except:
-                self.__response(response_content='Failed: ' + input)  # report result
-        elif input.startswith('downsample'):  # example: downsample > 2000
+                self.__response(response_content='Failed: ' + query)  # report result
+        elif query.startswith('downsample'):  # example: downsample > 2000
             try:
-                operation, target_fs = self.__process_query(query=input)
+                operation, target_fs = self.__process_query(query=query)
 
                 # downsample
                 [self.batch_ants[i].downsampling(target_fs=int(target_fs)) for i, _ in enumerate(self.batch_ants)]
@@ -157,30 +157,41 @@ class MainWindow(QMainWindow, AntsBatch):
                 self.__response(response_content=str(operation) + 'succeeded')  # report result
                 self.__response(response_content=str(self.batch_ants[0].sample_frequency))
             except:
-                self.__response(response_content='Failed: ' + input)  # report result
-        elif input.startswith('normalize'):  # example: normalize > rms
+                self.__response(response_content='Failed: ' + query)  # report result
+        elif query.startswith('normalize'):  # example: normalize > rms
             try:
-                operation, method = self.__process_query(query=input)
+                operation, method = self.__process_query(query=query)
 
                 # normalization
                 [self.batch_ants[i].normalization(method=str(method)) for i, _ in enumerate(self.batch_ants)]
 
                 self.__response(response_content=str(operation) + 'succeeded')  # report result
             except:
-                self.__response(response_content='Failed: ' + input)  # report result
-        elif input.startswith('butter'):  # example: butter > [40, 100]
+                self.__response(response_content='Failed: ' + query)  # report result
+        elif query.startswith('butter'):  # example: butter > [40, 100]
             try:
-                operation, band = self.__process_query(query=input)
+                operation, band = self.__process_query(query=query)
 
                 # bandpass filter
                 [self.batch_ants[i].bandpass_butter(target_band=eval(band)) for i, _ in enumerate(self.batch_ants)]
 
                 self.__response(response_content=str(operation) + 'succeeded')  # report result
             except:
-                self.__response(response_content='Failed: ' + input)  # report result
-        elif input.startswith('spectrogram'):  # example: spectrogram > duration=[0, 10]; nperseg=1000; pscale=log
+                self.__response(response_content='Failed: ' + query)  # report result
+        elif query.startswith('wavelet'):
             try:
-                operation, parameters = self.__process_query(query=input)
+                operation, parameters = self.__process_query(query=query)
+                sub_params = self.__process_subparam(parameter=parameters)
+
+                # calc wavelet spectrogram
+                [self.batch_ants[i].wavelet(**sub_params) for i, _ in enumerate(self.batch_ants)]
+
+                self.__response(response_content=str(operation) + 'succeeded')  # report result
+            except:
+                self.__response(response_content='Failed: ' + query)  # report result
+        elif query.startswith('spectrogram'):  # example: spectrogram > duration=[0, 10]; nperseg=1000; pscale=log
+            try:
+                operation, parameters = self.__process_query(query=query)
                 sub_params = self.__process_subparam(parameter=parameters)
 
                 # calc multitaper spectrogram
@@ -188,15 +199,15 @@ class MainWindow(QMainWindow, AntsBatch):
 
                 self.__response(response_content=str(operation) + 'succeeded')  # report result
             except:
-                self.__response(response_content='Failed: ' + input)  # report result
-        elif input.startswith('spectrum'):  # example: spectrum > xscope=[0, 200]
+                self.__response(response_content='Failed: ' + query)  # report result
+        elif query.startswith('spectrum'):  # example: spectrum > xscope=[0, 200]
             try:
-                operation, parameters = self.__process_query(query=input)
+                operation, parameters = self.__process_query(query=query)
                 sub_params = self.__process_subparam(parameter=parameters)
 
                 f, m, sem = ants.Ants.sem(batch=self.batch_ants)  # calculate sem
                 # draw power spectrum with sem
-                self.storage = ants.Ants().power_spectrum(freqs=f, mean=m, sem=sem, **sub_params)
+                fig, self.storage = ants.Ants().power_spectrum(freqs=f, mean=m, sem=sem, **sub_params)
 
                 self.__response(response_content=str('operation') + 'succeeded')  # report result
                 # self.__fig_response(figure=fig)  # report figure
@@ -204,11 +215,11 @@ class MainWindow(QMainWindow, AntsBatch):
                 #     self.__fig_response(figure=fig)  # report figure
                 # except:
                 #     self.__response(response_content=str(operation) + ': Cannot plot figure')  # report figure error
-                # self.__response(response_content=str('operation') + ': Stored in, ' + storage)  # report storage
+                self.__response(response_content=str('operation') + ': Stored in, ' + self.storage)  # report storage
             except:
-                self.__response(response_content='Failed: ' + input)  # report result
-        elif input.startswith('test'):
-            operation, parameters = self.__process_query(query=input)
+                self.__response(response_content='Failed: ' + query)  # report result
+        elif query.startswith('test'):
+            operation, parameters = self.__process_query(query=query)
             sub_params = self.__process_subparam(parameter=parameters)
             self.__response(response_content=str(type(operation)))  # report result
             self.__response(response_content=str(type(sub_params)))  # report result
