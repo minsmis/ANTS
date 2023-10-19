@@ -1,0 +1,19 @@
+* help: Show executable functions and examples
+
+* import: Import neuralynx data
+Ex) import > /home/user/.../data/directory
+
+* downsample: Downsample to given sampling frequency
+Ex) downsample > 2000
+
+* normalize: Normalize samples with given method
+Ex) normalize > rms
+
+* wavelet: Predict power using wavelet method
+Ex) wavelet > duration=[0, 100]
+
+* spectrogram: Predict power using STFT
+Ex) spectrogram > duration=[0, 10]; nperseg=1000; pscale=log
+
+* spectrum: Plot power spectrum and save in the storage
+Ex) spectrum > xscope=[0, 200]

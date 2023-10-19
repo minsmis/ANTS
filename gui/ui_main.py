@@ -1,3 +1,4 @@
+import os
 import sys
 import time
 import PySide6 as pys
@@ -133,7 +134,17 @@ class MainWindow(QMainWindow, AntsBatch):
 
     def __operation_classifier(self, query):
 
-        if query.startswith('import'):  # example: import > /home/user/.../file.mat
+        if query.startswith('help'):  # example: help
+            try:
+                operation, _ = self.__process_query(query=query)
+
+                executable_functions = open(os.path.join(os.getcwd(), 'executable_functions'), 'r')
+
+                for line in executable_functions.readlines():
+                    self.__response(response_content=str(line))  # report result
+            except:
+                self.__response(response_content='Failed: ' + query)  # report result
+        elif query.startswith('import'):  # example: import > /home/user/.../file.mat
             try:
                 operation, path = self.__process_query(query=query)
 
@@ -143,7 +154,7 @@ class MainWindow(QMainWindow, AntsBatch):
                 [self.batch_ants[i].call_neuralynx(path=str(path_list[i])) for i, _ in
                  enumerate(self.batch_ants)]  # import neuralynx
 
-                self.__response(response_content=str(operation) + 'succeeded')  # report result
+                self.__response(response_content=str(operation) + ' succeeded')  # report result
                 self.__response(response_content=str(self.batch_ants[0].samples[0:10]))
             except:
                 self.__response(response_content='Failed: ' + query)  # report result
@@ -154,7 +165,7 @@ class MainWindow(QMainWindow, AntsBatch):
                 # downsample
                 [self.batch_ants[i].downsampling(target_fs=int(target_fs)) for i, _ in enumerate(self.batch_ants)]
 
-                self.__response(response_content=str(operation) + 'succeeded')  # report result
+                self.__response(response_content=str(operation) + ' succeeded')  # report result
                 self.__response(response_content=str(self.batch_ants[0].sample_frequency))
             except:
                 self.__response(response_content='Failed: ' + query)  # report result
@@ -165,7 +176,7 @@ class MainWindow(QMainWindow, AntsBatch):
                 # normalization
                 [self.batch_ants[i].normalization(method=str(method)) for i, _ in enumerate(self.batch_ants)]
 
-                self.__response(response_content=str(operation) + 'succeeded')  # report result
+                self.__response(response_content=str(operation) + ' succeeded')  # report result
             except:
                 self.__response(response_content='Failed: ' + query)  # report result
         elif query.startswith('butter'):  # example: butter > [40, 100]
@@ -175,10 +186,10 @@ class MainWindow(QMainWindow, AntsBatch):
                 # bandpass filter
                 [self.batch_ants[i].bandpass_butter(target_band=eval(band)) for i, _ in enumerate(self.batch_ants)]
 
-                self.__response(response_content=str(operation) + 'succeeded')  # report result
+                self.__response(response_content=str(operation) + ' succeeded')  # report result
             except:
                 self.__response(response_content='Failed: ' + query)  # report result
-        elif query.startswith('wavelet'):
+        elif query.startswith('wavelet'):  # example: wavelet > duration=[0, 10]
             try:
                 operation, parameters = self.__process_query(query=query)
                 sub_params = self.__process_subparam(parameter=parameters)
@@ -186,7 +197,7 @@ class MainWindow(QMainWindow, AntsBatch):
                 # calc wavelet spectrogram
                 [self.batch_ants[i].wavelet(**sub_params) for i, _ in enumerate(self.batch_ants)]
 
-                self.__response(response_content=str(operation) + 'succeeded')  # report result
+                self.__response(response_content=str(operation) + ' succeeded')  # report result
             except:
                 self.__response(response_content='Failed: ' + query)  # report result
         elif query.startswith('spectrogram'):  # example: spectrogram > duration=[0, 10]; nperseg=1000; pscale=log
@@ -197,7 +208,7 @@ class MainWindow(QMainWindow, AntsBatch):
                 # calc multitaper spectrogram
                 [self.batch_ants[i].spectrogram(**sub_params) for i, _ in enumerate(self.batch_ants)]
 
-                self.__response(response_content=str(operation) + 'succeeded')  # report result
+                self.__response(response_content=str(operation) + ' succeeded')  # report result
             except:
                 self.__response(response_content='Failed: ' + query)  # report result
         elif query.startswith('spectrum'):  # example: spectrum > xscope=[0, 200]
@@ -209,13 +220,13 @@ class MainWindow(QMainWindow, AntsBatch):
                 # draw power spectrum with sem
                 fig, self.storage = ants.Ants().power_spectrum(freqs=f, mean=m, sem=sem, **sub_params)
 
-                self.__response(response_content=str('operation') + 'succeeded')  # report result
+                self.__response(response_content=str(operation) + ' succeeded')  # report result
                 # self.__fig_response(figure=fig)  # report figure
                 # try:
                 #     self.__fig_response(figure=fig)  # report figure
                 # except:
                 #     self.__response(response_content=str(operation) + ': Cannot plot figure')  # report figure error
-                self.__response(response_content=str('operation') + ': Stored in, ' + self.storage)  # report storage
+                self.__response(response_content=str(operation) + ': Stored in, ' + self.storage)  # report storage
             except:
                 self.__response(response_content='Failed: ' + query)  # report result
         elif query.startswith('test'):

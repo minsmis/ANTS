@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d491b282-cbf4-40ea-96e1-c68c01a9e164" name="Changes" comment="Fixed few error, Implemented fundamental functions (import, downsample, normalize, butter-filter, spectrogram, and power spectrum)">
+    <list default="true" id="d491b282-cbf4-40ea-96e1-c68c01a9e164" name="Changes" comment="Add figure return to functions">
+      <change afterPath="$PROJECT_DIR$/gui/executable_functions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/figures/power_spectrum.png" beforeDir="false" afterPath="$PROJECT_DIR$/figures/power_spectrum.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gui/ui_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui/ui_main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/painter/plots.py" beforeDir="false" afterPath="$PROJECT_DIR$/painter/plots.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,9 +29,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2Wuq9Zlg9qRDEGqnH6EVCXB8R3w" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -40,21 +40,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/minseokkim/Documents/Python/ANTS/gui",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/minseokkim/Documents/Python/ANTS/gui&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/gui" />
@@ -122,7 +122,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1697592664170</updated>
-      <workItem from="1697592665251" duration="6893000" />
+      <workItem from="1697592665251" duration="6942000" />
+      <workItem from="1697728402096" duration="367000" />
+      <workItem from="1697728802692" duration="1217000" />
     </task>
     <task id="LOCAL-00004" summary="Fixed few error, Implemented fundamental functions (import, downsample, normalize, butter-filter, spectrogram, and power spectrum)">
       <option name="closed" value="true" />
@@ -132,7 +134,23 @@
       <option name="project" value="LOCAL" />
       <updated>1697606992148</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Add wavelet transform function">
+      <option name="closed" value="true" />
+      <created>1697630326839</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1697630326839</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Add figure return to functions">
+      <option name="closed" value="true" />
+      <created>1697630355098</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1697630355098</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -144,7 +162,9 @@
     <MESSAGE value="Fix import error" />
     <MESSAGE value="Changed" />
     <MESSAGE value="Fixed few error, Implemented fundamental functions (import, downsample, normalize, butter-filter, spectrogram, and power spectrum)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed few error, Implemented fundamental functions (import, downsample, normalize, butter-filter, spectrogram, and power spectrum)" />
+    <MESSAGE value="Add wavelet transform function" />
+    <MESSAGE value="Add figure return to functions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add figure return to functions" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ANTS$test_main.coverage" NAME="test_main Coverage Results" MODIFIED="1696375772513" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/core" />
