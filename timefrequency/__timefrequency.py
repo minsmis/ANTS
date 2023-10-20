@@ -11,3 +11,6 @@ class TimeFrequency(timeseries.TimeSeries, metaclass=ABCMeta):
 
     def spectrogram(self, **kwargs):
         pass
+
+    def multitaper(self, **kwargs):
+        pass
