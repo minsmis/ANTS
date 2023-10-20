@@ -6,9 +6,9 @@ import scipy as sp
 import numpy as np
 
 
-class Multitaper(timefreq.TimeFrequency):
+class FFT(timefreq.TimeFrequency):
     def __init__(self):
-        super(Multitaper, self).__init__()
+        super(FFT, self).__init__()
 
     def spectrogram(self, **kwargs):
         # kwargs

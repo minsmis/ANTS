@@ -4,7 +4,7 @@ import preprocessing.downsampling as downsampling
 import preprocessing.filters as filters
 import preprocessing.normalization as normalization
 import timefrequency.wavelet as wavelet
-import timefrequency.multitaper as multitaper
+import timefrequency.fft as fft
 import postprocessing.power as post_power
 import postprocessing.scale as scale
 import painter.plots as plots
@@ -19,7 +19,7 @@ import core.antslogger as log
 
 # User interface
 class Ants(caller.CallTimeSeries, downsampling.Downsampling, dirprep.DirPrep,
-           filters.Filters, normalization.Normalization, wavelet.Wavelet, multitaper.Multitaper,
+           filters.Filters, normalization.Normalization, wavelet.Wavelet, fft.FFT,
            post_power.Power, scale.Scale, plots.Plots, circular_stat.Statistics):
 
     def __init__(self):
