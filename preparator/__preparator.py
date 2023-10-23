@@ -15,5 +15,5 @@ class Preparator(timeseries.TimeSeries, metaclass=ABCMeta):
         pass
 
     @classmethod
-    def get_spikes(cls, superior_path, sample_frequency, expander='txt', **kwargs):
+    def get_spikes(cls, superior_path, expander='txt', **kwargs):
         pass

@@ -5,8 +5,4 @@
     <orderEntry type="jdk" jdkName="Remote Python 3.10.13 (ants)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
-  <component name="PyDocumentationSettings">
-    <option name="format" value="GOOGLE" />
-    <option name="myDocStringFormat" value="Google" />
-  </component>
 </module>
