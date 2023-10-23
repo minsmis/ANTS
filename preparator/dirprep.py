@@ -45,8 +45,19 @@ class DirPrep(preparator.Preparator):
         return np.array(return_dir)
 
     @classmethod
-    def get_spikes(cls, superior_path, sample_frequency, expander='txt', **kwargs):
+    def get_spikes(cls, superior_path, expander='txt', **kwargs):
+        # kwargs
+        scales = [kwargs.get('scale') if 'scale' in kwargs else 'sec']
+        sample_frequency = [kwargs.get('sample_frequency') if 'sample_frequency' in kwargs else 2000]
+
+        # variables
+        spikes = []
+
         spikes_path = DirPrep.get_data_directory(superior_path=superior_path, expander=expander)  # get spike time
-        spikes = [scale.Scale.sec_to_ts_idx(time_s=np.loadtxt(spikes_path[i]), sample_frequency=sample_frequency)
-                  for i, _ in enumerate(spikes_path)]
+
+        if scales == 'sec':
+            spikes = [np.loadtxt(spikes_path[i]) for i, _ in enumerate(spikes_path)]
+        elif scales == 'idx':
+            spikes = [scale.Scale.sec_to_ts_idx(time_s=np.loadtxt(spikes_path[i]), sample_frequency=sample_frequency)
+                      for i, _ in enumerate(spikes_path)]
         return spikes
