@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d491b282-cbf4-40ea-96e1-c68c01a9e164" name="Changes" comment="Changed.">
-      <change afterPath="$PROJECT_DIR$/spikes/__spikes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spikes/classification.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/ants.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/ants.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/usage_example.py" beforeDir="false" afterPath="$PROJECT_DIR$/example/usage_example.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/preparator/dirprep.py" beforeDir="false" afterPath="$PROJECT_DIR$/preparator/dirprep.py" afterDir="false" />
-    </list>
+    <list default="true" id="d491b282-cbf4-40ea-96e1-c68c01a9e164" name="Changes" comment="Changed." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -134,7 +126,7 @@
       <workItem from="1697728402096" duration="367000" />
       <workItem from="1697728802692" duration="1443000" />
       <workItem from="1697815070634" duration="2506000" />
-      <workItem from="1697978064362" duration="10605000" />
+      <workItem from="1697978064362" duration="10809000" />
     </task>
     <task id="LOCAL-00004" summary="Fixed few error, Implemented fundamental functions (import, downsample, normalize, butter-filter, spectrogram, and power spectrum)">
       <option name="closed" value="true" />
@@ -240,7 +232,39 @@
       <option name="project" value="LOCAL" />
       <updated>1698022335359</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Add cell type classification functions.">
+      <option name="closed" value="true" />
+      <created>1698074775956</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1698074775956</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Add cell type classification functions.">
+      <option name="closed" value="true" />
+      <created>1698074783866</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1698074783866</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Add function to get spikes by scale">
+      <option name="closed" value="true" />
+      <created>1698074827158</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1698074827158</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Changed.">
+      <option name="closed" value="true" />
+      <created>1698074834771</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1698074834771</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -271,6 +295,8 @@
     <MESSAGE value="Changed" />
     <MESSAGE value="Removed." />
     <MESSAGE value="Add usage example." />
+    <MESSAGE value="Add cell type classification functions." />
+    <MESSAGE value="Add function to get spikes by scale" />
     <MESSAGE value="Changed." />
     <option name="LAST_COMMIT_MESSAGE" value="Changed." />
   </component>
