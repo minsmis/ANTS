@@ -1,0 +1,91 @@
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_2023-10-13__10_36__Changes_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_2023-10-13__10_36__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_2023-10-13__10_36__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_2023-10-13__10_36__Changes_.xml	(revision bececec0d66fb5e6972e2b1b0fb770d4e2f01412)
++++ /dev/null	(revision bececec0d66fb5e6972e2b1b0fb770d4e2f01412)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_2023-10-13_오전_10_36_[Changes]" date="1697160991246" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023-10-13_오전_10_36_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 2023-10-13 오전 10:36 [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_2023-10-13_오전_10_36_[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_2023-10-13_오전_10_36_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_2023-10-13_오전_10_36_[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_2023-10-13_오전_10_36_[Changes]/shelved.patch	(revision bececec0d66fb5e6972e2b1b0fb770d4e2f01412)
++++ /dev/null	(revision bececec0d66fb5e6972e2b1b0fb770d4e2f01412)
+@@ -1,36 +0,0 @@
+-Index: .idea/ANTS.iml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<module type=\"PYTHON_MODULE\" version=\"4\">\r\n  <component name=\"NewModuleRootManager\">\r\n    <content url=\"file://$MODULE_DIR$\" />\r\n    <orderEntry type=\"jdk\" jdkName=\"Remote Python 3.10.13 (ants)\" jdkType=\"Python SDK\" />\r\n    <orderEntry type=\"sourceFolder\" forTests=\"false\" />\r\n  </component>\r\n  <component name=\"PyDocumentationSettings\">\r\n    <option name=\"renderExternalDocumentation\" value=\"true\" />\r\n  </component>\r\n</module>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/ANTS.iml b/.idea/ANTS.iml
+---- a/.idea/ANTS.iml	(revision 6a7042b4f60124c675138d74937c5742985007d5)
+-+++ b/.idea/ANTS.iml	(date 1696924862644)
+-@@ -5,7 +5,4 @@
+-     <orderEntry type="jdk" jdkName="Remote Python 3.10.13 (ants)" jdkType="Python SDK" />
+-     <orderEntry type="sourceFolder" forTests="false" />
+-   </component>
+--  <component name="PyDocumentationSettings">
+--    <option name="renderExternalDocumentation" value="true" />
+--  </component>
+- </module>
+-\ No newline at end of file
+-Index: .idea/misc.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectRootManager\" version=\"2\" project-jdk-name=\"Remote Python 3.10.13 (ANTS)\" project-jdk-type=\"Python SDK\" />\r\n</project>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/misc.xml b/.idea/misc.xml
+---- a/.idea/misc.xml	(revision 6a7042b4f60124c675138d74937c5742985007d5)
+-+++ b/.idea/misc.xml	(date 1696924862650)
+-@@ -1,4 +1,4 @@
+- <?xml version="1.0" encoding="UTF-8"?>
+- <project version="4">
+--  <component name="ProjectRootManager" version="2" project-jdk-name="Remote Python 3.10.13 (ANTS)" project-jdk-type="Python SDK" />
+-+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.10 (ANTS)" project-jdk-type="Python SDK" />
+- </project>
+-\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectRootManager\" version=\"2\" project-jdk-name=\"ANTS\" project-jdk-type=\"Python SDK\" />\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision bececec0d66fb5e6972e2b1b0fb770d4e2f01412)
++++ b/.idea/misc.xml	(date 1698023602517)
+@@ -1,4 +1,4 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="ProjectRootManager" version="2" project-jdk-name="ANTS" project-jdk-type="Python SDK" />
++  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.10 (ANTS)" project-jdk-type="Python SDK" />
+ </project>
+\ No newline at end of file
+Index: .idea/ANTS.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<module type=\"PYTHON_MODULE\" version=\"4\">\r\n  <component name=\"NewModuleRootManager\">\r\n    <content url=\"file://$MODULE_DIR$\" />\r\n    <orderEntry type=\"jdk\" jdkName=\"Remote Python 3.10.13 (ants)\" jdkType=\"Python SDK\" />\r\n    <orderEntry type=\"sourceFolder\" forTests=\"false\" />\r\n  </component>\r\n  <component name=\"PyDocumentationSettings\">\r\n    <option name=\"renderExternalDocumentation\" value=\"true\" />\r\n  </component>\r\n</module>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/ANTS.iml b/.idea/ANTS.iml
+--- a/.idea/ANTS.iml	(revision bececec0d66fb5e6972e2b1b0fb770d4e2f01412)
++++ b/.idea/ANTS.iml	(date 1698023602512)
+@@ -5,7 +5,4 @@
+     <orderEntry type="jdk" jdkName="Remote Python 3.10.13 (ants)" jdkType="Python SDK" />
+     <orderEntry type="sourceFolder" forTests="false" />
+   </component>
+-  <component name="PyDocumentationSettings">
+-    <option name="renderExternalDocumentation" value="true" />
+-  </component>
+ </module>
+\ No newline at end of file
