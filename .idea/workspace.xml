@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d491b282-cbf4-40ea-96e1-c68c01a9e164" name="Changes" comment="Changed.">
-      <change beforePath="$PROJECT_DIR$/.idea/ANTS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ANTS.iml" afterDir="false" />
+    <list default="true" id="d491b282-cbf4-40ea-96e1-c68c01a9e164" name="Changes" comment="Removed.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/timefrequency/_multitaper_reference.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/timefrequency/multitaper.py" beforeDir="false" afterPath="$PROJECT_DIR$/timefrequency/multitaper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/test_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/example/usage_example.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +59,7 @@
       <recent name="$PROJECT_DIR$/gui/resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/example" />
       <recent name="$PROJECT_DIR$/timefrequency" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/gui" />
@@ -127,7 +126,7 @@
       <workItem from="1697728402096" duration="367000" />
       <workItem from="1697728802692" duration="1443000" />
       <workItem from="1697815070634" duration="2506000" />
-      <workItem from="1697978064362" duration="4123000" />
+      <workItem from="1697978064362" duration="6448000" />
     </task>
     <task id="LOCAL-00004" summary="Fixed few error, Implemented fundamental functions (import, downsample, normalize, butter-filter, spectrogram, and power spectrum)">
       <option name="closed" value="true" />
@@ -185,7 +184,31 @@
       <option name="project" value="LOCAL" />
       <updated>1697817552768</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Add multitaper function.">
+      <option name="closed" value="true" />
+      <created>1697983304816</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1697983304816</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Changed">
+      <option name="closed" value="true" />
+      <created>1697983312496</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1697983312496</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Removed.">
+      <option name="closed" value="true" />
+      <created>1697983323057</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1697983323057</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -195,7 +218,6 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Fixed few errors" />
     <MESSAGE value="Fix import error" />
-    <MESSAGE value="Changed" />
     <MESSAGE value="Fixed few error, Implemented fundamental functions (import, downsample, normalize, butter-filter, spectrogram, and power spectrum)" />
     <MESSAGE value="Add wavelet transform function" />
     <MESSAGE value="Add figure return to functions" />
@@ -203,7 +225,10 @@
     <MESSAGE value="Correct function name." />
     <MESSAGE value="Add multitaper parameter processing function." />
     <MESSAGE value="Changed." />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed." />
+    <MESSAGE value="Add multitaper function." />
+    <MESSAGE value="Changed" />
+    <MESSAGE value="Removed." />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ANTS$test_main.coverage" NAME="test_main Coverage Results" MODIFIED="1696375772513" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/core" />
