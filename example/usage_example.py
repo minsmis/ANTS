@@ -27,8 +27,12 @@ storage = ants.Ants().power_spectrum(freqs=f, mean=m, sem=sem, xscope=[0, 200]) 
 batch_ants[0].plot_eeg(duration=[0, 0.5], filter=[40, 100])  # plot sample eeg
 
 # preferred phase
-# _units_eeg_idx = [0, 0, 0, 1, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3]
-# spikes = ants.Ants.get_spikes(superior_path=path, sample_frequency=batch_ants[0].sample_frequency)
-# preferred_phase = [(ants.Ants.preferred_phase(batch_ants[eeg].bandpass_samples,
-#                                               batch_ants[eeg].sample_frequency, spikes[i]))
-#                    for (i, _), eeg in zip(enumerate(spikes), _units_eeg_idx)]
+_units_eeg_idx = [0, 0, 0, 1, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3]
+spikes = ants.Ants.get_spikes(superior_path=path, sample_frequency=batch_ants[0].sample_frequency, scale='idx')
+preferred_phase = [(ants.Ants.preferred_phase(batch_ants[eeg].bandpass_samples,
+                                              batch_ants[eeg].sample_frequency, spikes[i]))
+                   for (i, _), eeg in zip(enumerate(spikes), _units_eeg_idx)]
+
+# cell type classification
+spikes_s = ants.Ants.get_spikes(superior_path=path, scale='sec')
+is_pc = [ants.Ants.classify(spikes_s[i], mode='pc') for i, _ in enumerate(spikes_s)]
