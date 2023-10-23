@@ -6,6 +6,7 @@ class TimeSeries:
         super(TimeSeries, self).__init__()
 
         # variables
+        self.path = str
         self.header = list
         self.sample_frequency = int
         self.samples = np.ndarray

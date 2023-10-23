@@ -39,6 +39,7 @@ class CallTimeSeries(extractor.Extractor):
             ### bypass window matlab engine error; need refactoring ###
             try:
                 mat = readmat.loadmat(path)  # load mat7.3 file, extracted by 'extract_to_ants.m"
+                self.path = path
                 self.header = list(mat['header'])
                 self.sample_frequency = int(mat['sample_frequency'])
                 self.samples = mat['samples']
@@ -48,6 +49,7 @@ class CallTimeSeries(extractor.Extractor):
         elif os == 'mac' or os == 'linux':  # Mac or linux
             try:
                 mat = readmat.loadmat(path)  # load mat7.3 file, extracted by 'extract_to_ants.m"
+                self.path = path
                 self.header = list(mat['header'])
                 self.sample_frequency = int(mat['sample_frequency'])
                 self.samples = mat['samples']
