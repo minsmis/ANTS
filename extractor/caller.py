@@ -9,9 +9,9 @@ import extractor.__extractor as extractor
 import extractor.nlx_in_matlab_win as nlxW
 
 
-class CallTimeSeries(extractor.Extractor):
+class Caller(extractor.Extractor):
     def __init__(self):
-        super(CallTimeSeries, self).__init__()
+        super(Caller, self).__init__()
 
     def call_neuralynx(self, path):
         os = platform.check_os()
@@ -58,3 +58,13 @@ class CallTimeSeries(extractor.Extractor):
                 log.logger_handler.throw_error(err_code='0002', err_msg='No Files Error')
         elif os == 'linux':  # Linux
             log.logger_handler.throw_error(err_code='0001', err_msg='OS Error')
+
+    def call_nlx_events(self, path):
+        os = platform.check_os()
+
+        if os == 'win':
+            pass
+        elif os == 'mac':
+            pass
+        elif os == 'linux':
+            pass
