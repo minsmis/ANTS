@@ -19,7 +19,7 @@ import core.antslogger as log
 
 
 # User interface
-class Ants(caller.CallTimeSeries, downsampling.Downsampling, dirprep.DirPrep,
+class Ants(caller.Caller, downsampling.Downsampling, dirprep.DirPrep,
            filters.Filters, normalization.Normalization, wavelet.Wavelet, fft.FFT,
            post_power.Power, scale.Scale, plots.Plots, circular_stat.Statistics,
            classify.Classification):
