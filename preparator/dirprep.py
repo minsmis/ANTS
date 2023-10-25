@@ -35,7 +35,7 @@ class DirPrep(preparator.Preparator):
             file_expander = ''  # all files
 
         # get sub-directories from superior_path
-        subs = DirPrep.get_subdirectory(superior_path=superior_path)
+        subs = cls.get_subdirectory(superior_path=superior_path)
 
         for sub_i, _ in enumerate(subs):  # 1st sub-dir where data files in itself
             for file_i, _ in enumerate(subs[sub_i][-1]):  # data files in the 1st sub-dir
