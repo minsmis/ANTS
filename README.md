@@ -1,3 +1,8 @@
+![PyPI - Version](https://img.shields.io/pypi/v/ants-pi)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/ants-pi)
+![GitHub](https://img.shields.io/github/license/minsmis/ANTS)
+
+
 # Welcome to ANTS👋!
 **ANTS** is a toolbox for analyzing time-series data. 
 You can recruit your own workers and order some 
