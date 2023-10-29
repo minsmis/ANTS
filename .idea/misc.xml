@@ -3,5 +3,5 @@
   <component name="Black">
     <option name="sdkName" value="ANTS" />
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="ANTS" project-jdk-type="Python SDK" />
+  <component name="ProjectRootManager" version="2" project-jdk-name="ants2" project-jdk-type="Python SDK" />
 </project>
