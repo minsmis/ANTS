@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d491b282-cbf4-40ea-96e1-c68c01a9e164" name="Changes" comment="Build: Update to 0.0.3.">
-      <change afterPath="$PROJECT_DIR$/example/23.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="d491b282-cbf4-40ea-96e1-c68c01a9e164" name="Changes" comment="Changed.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/figures/eeg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/figures/power_spectrum.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/logs.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/23.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +149,7 @@
       <workItem from="1698591836890" duration="6420000" />
       <workItem from="1698608275689" duration="7246000" />
       <workItem from="1698615596636" duration="573000" />
-      <workItem from="1698616178181" duration="1386000" />
+      <workItem from="1698616178181" duration="2179000" />
     </task>
     <task id="LOCAL-00004" summary="Fixed few error, Implemented fundamental functions (import, downsample, normalize, butter-filter, spectrogram, and power spectrum)">
       <option name="closed" value="true" />
@@ -411,7 +407,39 @@
       <option name="project" value="LOCAL" />
       <updated>1698617223243</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Chore: Add gitignore related in build.">
+      <option name="closed" value="true" />
+      <created>1698617615162</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1698617615162</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Chore: Remove garbage files.">
+      <option name="closed" value="true" />
+      <created>1698617661922</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1698617661922</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Chore: Remove garbage files.">
+      <option name="closed" value="true" />
+      <created>1698617677157</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1698617677157</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Changed.">
+      <option name="closed" value="true" />
+      <created>1698617684219</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1698617684219</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -430,8 +458,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Fix import error" />
-    <MESSAGE value="Fixed few error, Implemented fundamental functions (import, downsample, normalize, butter-filter, spectrogram, and power spectrum)" />
     <MESSAGE value="Add wavelet transform function" />
     <MESSAGE value="Add figure return to functions" />
     <MESSAGE value="Fix small errors and add 'help' function" />
@@ -453,9 +479,11 @@
     <MESSAGE value="Docs: Add README." />
     <MESSAGE value="Chore: Change unnecessary structures." />
     <MESSAGE value="Fix: Change wrong import." />
-    <MESSAGE value="Changed." />
     <MESSAGE value="Build: Update to 0.0.3." />
-    <option name="LAST_COMMIT_MESSAGE" value="Build: Update to 0.0.3." />
+    <MESSAGE value="Chore: Add gitignore related in build." />
+    <MESSAGE value="Chore: Remove garbage files." />
+    <MESSAGE value="Changed." />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ANTS$test_main.coverage" NAME="test_main Coverage Results" MODIFIED="1696375772513" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/core" />
