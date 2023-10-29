@@ -1,12 +1,12 @@
 import core.antslogger as log
-import timefrequency.__timefrequency as timefreq
+import core.antstimeseries as timeseries
 import postprocessing.power as power
 
 import scipy as sp
 import numpy as np
 
 
-class FFT(timefreq.TimeFrequency):
+class FFT(timeseries.TimeSeries):
     def __init__(self):
         super(FFT, self).__init__()
 

@@ -1,7 +1,7 @@
-import preprocessing.__preprocessing as preprocessing
+import core.antstimeseries as timeseries
 
 
-class Downsampling(preprocessing.Preprocessing):
+class Downsampling(timeseries.TimeSeries):
     def __init__(self):
         super(Downsampling, self).__init__()
 

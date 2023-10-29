@@ -1,8 +1,8 @@
-import preprocessing.__preprocessing as preprocessing
 import scipy as sp
+import core.antstimeseries as timeseries
 
 
-class Filters(preprocessing.Preprocessing):
+class Filters(timeseries.TimeSeries):
     def __init__(self):
         super(Filters, self).__init__()
 

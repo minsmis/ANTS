@@ -2,19 +2,16 @@ import scipy as sp
 import numpy as np
 import matplotlib.pyplot as plt
 
-import circulus.__circulus as circulus
 import core.antslogger as log
+import core.antstimeseries as timeseries
 
 
-class Statistics(circulus.Circulus):
+class Cstatistics(timeseries.TimeSeries):
 
     def __init__(self):
-        super(Statistics, self).__init__()
+        super(Cstatistics, self).__init__()
 
     def get_phase(self, **kwargs):
-        # Mode
-        bool_plot = False
-
         if 'duration' in kwargs:  # set sample duration
             duration_s = kwargs.get('duration')
             if isinstance(duration_s, list):
@@ -26,34 +23,14 @@ class Statistics(circulus.Circulus):
         else:
             samples = self.samples.tolist()
 
-        if 'plot' in kwargs:  # set plot mode
-            bool_plot = kwargs.get('plot')
-            if isinstance(bool_plot, bool):
-                pass
-            else:
-                log.logger_handler.throw_error(err_code='0003', err_msg='Value Error')
-                bool_plot = False
-        else:
-            bool_plot = False
-
         # predict phase
         spectrum = sp.signal.hilbert(samples)  # hilbert transform
         phase_rad = np.angle(spectrum)  # convert phase to angle in radians
 
-        if bool_plot is True:
-            # Plot the phase angle
-            plt.plot(np.arange(0, len(samples)), phase_rad)
-            plt.xlabel('Time')
-            plt.ylabel('Phase Angle')
-            plt.title('Phase Angle of the Signal')
-            plt.show()
         return phase_rad
 
     @classmethod
     def phase(cls, samples, sample_frequency, **kwargs):
-        # Mode
-        bool_plot = False
-
         if 'duration' in kwargs:  # set sample duration
             duration_s = kwargs.get('duration')
             if isinstance(duration_s, list):
@@ -65,27 +42,10 @@ class Statistics(circulus.Circulus):
         else:
             samples = samples.tolist()
 
-        if 'plot' in kwargs:  # set plot mode
-            bool_plot = kwargs.get('plot')
-            if isinstance(bool_plot, bool):
-                pass
-            else:
-                log.logger_handler.throw_error(err_code='0003', err_msg='Value Error')
-                bool_plot = False
-        else:
-            bool_plot = False
-
         # predict phase
         spectrum = sp.signal.hilbert(samples)  # hilbert transform
         phase_rad = np.angle(spectrum)  # convert phase to angle in radians
 
-        if bool_plot is True:
-            # Plot the phase angle
-            plt.plot(np.arange(0, len(samples)), phase_rad)
-            plt.xlabel('Time')
-            plt.ylabel('Phase Angle')
-            plt.title('Phase Angle of the Signal')
-            plt.show()
         return phase_rad
 
     @classmethod
@@ -119,7 +79,7 @@ class Statistics(circulus.Circulus):
             weights = np.ones(np.shape(alpha))  # default weights
 
         if N > 1:
-            R = Statistics.mean_resultant_vector(alpha=alpha, weights=weights)
+            R = Cstatistics.mean_resultant_vector(alpha=alpha, weights=weights)
         else:
             R = alpha
 
@@ -150,7 +110,7 @@ class Statistics(circulus.Circulus):
             weights = np.ones(np.shape(alpha))  # default weights
 
         # compute ingredients for confidence limits
-        r = Statistics.mean_resultant_vector(alpha=alpha, weights=weights)
+        r = Cstatistics.mean_resultant_vector(alpha=alpha, weights=weights)
         n = sum(weights, dim)
         R = np.multiply(n, r)
         c2 = sp.stats.chi2.ppf((1 - xi), df=1)
@@ -201,7 +161,7 @@ class Statistics(circulus.Circulus):
 
         # confidence limits if desired
         if len(kwargs) >= 1:
-            t = Statistics.mean_confidence(alpha=alpha, weights=weights)
+            t = Cstatistics.mean_confidence(alpha=alpha, weights=weights)
             ul = mu + t  # upper 95% confidence limit
             ll = mu - t  # lower 95% confidence limit
         return dict(mean_direction=mu.item(), upper_limit=ul.item(), lower_limit=ll.item())
@@ -216,20 +176,20 @@ class Statistics(circulus.Circulus):
         else:
             weights = np.ones(np.shape(alpha))  # default weights
 
-        resultant_vector = Statistics.mean_resultant_vector(alpha=alpha, weights=weights)
-        kappa = Statistics.kappa(alpha=resultant_vector)
-        thetahat = Statistics.mean_direction(alpha=alpha, weights=weights)
+        resultant_vector = Cstatistics.mean_resultant_vector(alpha=alpha, weights=weights)
+        kappa = Cstatistics.kappa(alpha=resultant_vector)
+        thetahat = Cstatistics.mean_direction(alpha=alpha, weights=weights)
         return thetahat, kappa
 
-    def get_preferred_phase(self, spike_peak_ts, **kwargs):
-        phase_rad = Statistics.phase(self.samples, self.sample_frequency)  # predict phase
-        spike_phase = [phase_rad[i] for i, _ in enumerate(spike_peak_ts)]  # get spike phase
-        (preferred_phase, kappa) = Statistics.von_mises_parameter(alpha=spike_phase)  # calculate preferred phase
+    def get_preferred_phase(self, spike_peak_ts_idx, **kwargs):
+        phase_rad = Cstatistics.phase(self.samples, self.sample_frequency)  # predict phase
+        spike_phase = [phase_rad[ts_idx] for ts_idx in enumerate(spike_peak_ts_idx)]  # get spike phase
+        (preferred_phase, kappa) = Cstatistics.von_mises_parameter(alpha=spike_phase)  # calculate preferred phase
         return preferred_phase, kappa
 
     @classmethod
     def preferred_phase(cls, samples, sample_frequency, spike_peak_ts_idx, **kwargs):
-        phase_rad = Statistics.phase(samples, sample_frequency)  # predict phase
+        phase_rad = Cstatistics.phase(samples, sample_frequency)  # predict phase
         spike_phase = [phase_rad[ts_idx] for ts_idx in spike_peak_ts_idx]  # get spike phase
-        (preferred_phase, kappa) = Statistics.von_mises_parameter(alpha=spike_phase)  # calculate preferred phase
+        (preferred_phase, kappa) = Cstatistics.von_mises_parameter(alpha=spike_phase)  # calculate preferred phase
         return preferred_phase, kappa

@@ -5,11 +5,11 @@ import matlab
 import matlab.engine as me
 import core.antslogger as log
 import core.antsplatform as platform
-import extractor.__extractor as extractor
+import core.antstimeseries as timeseries
 import extractor.nlx_in_matlab_win as nlxW
 
 
-class Caller(extractor.Extractor):
+class Caller(timeseries.TimeSeries):
     def __init__(self):
         super(Caller, self).__init__()
 

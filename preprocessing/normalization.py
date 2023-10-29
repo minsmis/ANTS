@@ -1,8 +1,8 @@
-import preprocessing.__preprocessing as preprocessing
 import numpy as np
+import core.antstimeseries as timeseries
 
 
-class Normalization(preprocessing.Preprocessing):
+class Normalization(timeseries.TimeSeries):
     def __init__(self):
         super(Normalization, self).__init__()
 

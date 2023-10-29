@@ -1,8 +1,8 @@
 import numpy as np
-import postprocessing.__postprocessing as postprocessing
+import core.antstimeseries as timeseries
 
 
-class Scale(postprocessing.Postprocessing):
+class Scale(timeseries.TimeSeries):
     def __init__(self):
         super(Scale, self).__init__()
 

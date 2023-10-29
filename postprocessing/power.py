@@ -1,10 +1,10 @@
-import postprocessing.__postprocessing as postprocessing
 import core.antslogger as log
 import numpy as np
 import scipy as sp
+import core.antstimeseries as timeseries
 
 
-class Power(postprocessing.Postprocessing):
+class Power(timeseries.TimeSeries):
     def __init__(self):
         super(Power, self).__init__()
 

@@ -9,10 +9,10 @@ from scipy.signal import detrend
 
 import matplotlib.pyplot as plt
 
-import core.ants as ants
+import core.antstimeseries as timeseries
 
 
-class Multitaper(ants.Ants):
+class Multitaper(timeseries.TimeSeries):
     def __init__(self):
         super(Multitaper, self).__init__()
 
@@ -32,8 +32,8 @@ class Multitaper(ants.Ants):
         plot_on = kwargs.get('plot_on') if 'plot_on' in kwargs else True
         return_fig = kwargs.get('return_fig') if 'return_fig' in kwargs else False
         save_fig = kwargs.get('save_fig') if 'save_fig' in kwargs else True
-        figure_path = os.path.join(os.path.dirname(os.getcwd()), 'figures')
-        directory = kwargs.get('directory') if 'directory' in kwargs else figure_path
+        directory = kwargs.get('directory') if 'directory' in kwargs else os.path.join(os.path.dirname(os.getcwd()),
+                                                                                       'figures')
         clim_scale = kwargs.get('clim_scale') if 'clim_scale' in kwargs else False
         verbose = kwargs.get('verbose') if 'verbose' in kwargs else True
         xyflip = kwargs.get('xyflip') if 'xyflip' in kwargs else False

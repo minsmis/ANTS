@@ -1,12 +1,12 @@
 import core.antslogger as log
-import preparator.__preparator as preparator
+import core.antstimeseries as timeseries
 import postprocessing.scale as scale
 
 import os
 import numpy as np
 
 
-class DirPrep(preparator.Preparator):
+class DirPrep(timeseries.TimeSeries):
     def __init__(self):
         super(DirPrep, self).__init__()
 

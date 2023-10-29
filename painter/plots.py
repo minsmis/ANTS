@@ -2,13 +2,13 @@ import os
 import numpy as np
 
 import core.antslogger as log
-import painter.__painter as painter
+import core.antstimeseries as timeseries
 import preprocessing.filters as filters
 import postprocessing.scale as scale
 import matplotlib.pyplot as plt
 
 
-class Plots(painter.Painter):
+class Plots(timeseries.TimeSeries):
     def __init__(self):
         super(Plots, self).__init__()
 
@@ -80,11 +80,11 @@ class Plots(painter.Painter):
         fig, ax = plt.subplots()
 
         # set plot samples
-        if 'filter' in kwargs:
-            filter = kwargs.get('filter')
-            if isinstance(filter, list) or isinstance(filter, np.ndarray):
+        if 'target_band' in kwargs:
+            target_band = kwargs.get('target_band')
+            if isinstance(target_band, list) or isinstance(target_band, np.ndarray):
                 samples = filters.Filters.butter(samples=self.samples, sample_frequency=self.sample_frequency,
-                                                 target_band=filter)  # filtered samples
+                                                 target_band=target_band)  # filtered samples
             else:
                 log.logger_handler.throw_error(err_code='0003', err_msg='Value Error')
         else:

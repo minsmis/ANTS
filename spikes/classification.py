@@ -1,9 +1,9 @@
-import spikes.__spikes as spikes
-
 import numpy as np
 
+import core.antstimeseries as timeseries
 
-class Classification(spikes.Spikes):
+
+class Classification(timeseries.TimeSeries):
     def __init__(self):
         super(Classification, ).__init__()
 

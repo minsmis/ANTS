@@ -2,15 +2,13 @@ import os
 import matlab
 import matlab.engine as me
 import numpy as np
-import scipy as sp
-import matplotlib.pyplot as plt
 
 import core.antslogger as log
-import timefrequency.__timefrequency as timefreq
+import core.antstimeseries as timeseries
 import postprocessing.power as power
 
 
-class Wavelet(timefreq.TimeFrequency):
+class Wavelet(timeseries.TimeSeries):
 
     def __init__(self):
         super(Wavelet, self).__init__()

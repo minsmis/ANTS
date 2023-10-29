@@ -8,7 +8,7 @@ import timefrequency.fft as fft
 import postprocessing.power as post_power
 import postprocessing.scale as scale
 import painter.plots as plots
-import circulus.statistics as circular_stat
+import circulus.cstatistics as circular_stat
 import spikes.classification as classify
 
 import os
