@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+timefrequency/ants_py.egg-info/PKG-INFO
+timefrequency/ants_py.egg-info/SOURCES.txt
+timefrequency/ants_py.egg-info/dependency_links.txt
+timefrequency/ants_py.egg-info/requires.txt
+timefrequency/ants_py.egg-info/top_level.txt
