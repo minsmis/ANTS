@@ -8,7 +8,7 @@ import timefrequency.fft as fft
 import postprocessing.power as post_power
 import postprocessing.scale as scale
 import painter.plots as plots
-import circulus.cstatistics as circular_stat
+import circulus.cstatistics as cstat
 import spikes.classification as classify
 
 import os
@@ -21,7 +21,7 @@ import core.antslogger as log
 # User interface
 class Ants(caller.Caller, downsampling.Downsampling, dirprep.DirPrep,
            filters.Filters, normalization.Normalization, wavelet.Wavelet, fft.FFT,
-           post_power.Power, scale.Scale, plots.Plots, circular_stat.Statistics,
+           post_power.Power, scale.Scale, plots.Plots, cstat.Cstatistics,
            classify.Classification):
 
     def __init__(self):
