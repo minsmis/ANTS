@@ -4,7 +4,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 setuptools.setup(
     name="ants-pi",
-    version="0.0.3",
+    version="0.0.4",
     author="neuraldevops",
     author_email="minseok.kim@brain.snu.ac.kr",
     description="ANalysis for Time Series",
